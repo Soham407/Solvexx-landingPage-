@@ -45,7 +45,7 @@ const WhyUs = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Why Choose Us</h1>
+            <h1 className="text-4xl md:text-5xl font-medium mb-6">Why Choose Us</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               What makes Solvesxx different from other facility management providers.
             </p>
@@ -71,7 +71,7 @@ const WhyUs = () => {
                   <div className="bg-white w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6 shadow-sm group-hover:bg-accent group-hover:text-white transition-colors duration-500">
                     <item.icon size={32} />
                   </div>
-                  <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">{item.title}</h3>
+                  <h3 className="text-xl font-medium text-primary mb-4 group-hover:text-white transition-colors duration-500">{item.title}</h3>
                   <p className="text-gray-600 leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
                     {item.desc}
                   </p>
@@ -87,18 +87,18 @@ const WhyUs = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">Your facility deserves management that is disciplined, ethical, and efficient.</h2>
+              <h2 className="text-3xl md:text-4xl font-medium text-primary mb-8">Your facility deserves management that is disciplined, ethical, and efficient.</h2>
               <p className="text-gray-600 mb-10 text-lg leading-relaxed">
                 We don't just provide services; we manage ecosystems. Our commitment to compliance and quality control ensures that your infrastructure is in safe hands.
               </p>
               <div className="grid grid-cols-2 gap-8">
                 <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
-                  <div className="text-4xl font-bold text-accent mb-2">100%</div>
-                  <div className="text-sm font-bold text-primary uppercase tracking-wider">Compliance</div>
+                  <div className="text-4xl font-medium text-accent mb-2">100%</div>
+                  <div className="text-sm text-primary uppercase tracking-wider">Compliance</div>
                 </div>
                 <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
-                  <div className="text-4xl font-bold text-accent mb-2">24/7</div>
-                  <div className="text-sm font-bold text-primary uppercase tracking-wider">Support</div>
+                  <div className="text-4xl font-medium text-accent mb-2">24/7</div>
+                  <div className="text-sm text-primary uppercase tracking-wider">Support</div>
                 </div>
               </div>
             </div>

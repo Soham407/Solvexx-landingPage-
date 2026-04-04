@@ -50,8 +50,8 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-1/2 lg:pr-12 py-12"
           >
-            <span className="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">Powerfull Solutions Pvt. Ltd.</span>
-            <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
+            <span className="text-accent tracking-widest uppercase text-sm mb-4 block">Powerfull Solutions Pvt. Ltd.</span>
+            <h1 className="text-4xl md:text-6xl font-display font-medium text-white mb-6 leading-tight">
               Complete Facility & <br />
               <span className="text-accent">Infrastructure Solutions</span>
             </h1>
@@ -66,13 +66,13 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
                 to="/services" 
-                className="bg-accent text-white px-8 py-4 rounded-md font-bold text-lg flex items-center justify-center gap-2 gold-gradient hover:scale-105 transition-transform shadow-xl"
+                className="bg-accent text-white px-8 py-4 rounded-md font-medium text-lg flex items-center justify-center gap-2 gold-gradient hover:scale-105 transition-transform shadow-xl"
               >
                 Explore Services <ArrowRight size={20} />
               </Link>
               <Link 
                 to="/contact" 
-                className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-md font-bold text-lg flex items-center justify-center hover:bg-white/20 transition-all"
+                className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-md font-medium text-lg flex items-center justify-center hover:bg-white/20 transition-all"
               >
                 Request Site Audit
               </Link>
@@ -85,7 +85,7 @@ const Home = () => {
       <section className="bg-secondary py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Why Solvexx</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Why Solvexx</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -104,7 +104,7 @@ const Home = () => {
                     <usp.icon size={24} />
                   </div>
                   <div>
-                    <h3 className="font-bold text-primary mb-1 group-hover:text-white transition-colors duration-500">{usp.title}</h3>
+                    <h3 className="font-medium text-primary mb-1 group-hover:text-white transition-colors duration-500">{usp.title}</h3>
                     <p className="text-sm text-gray-600 leading-snug group-hover:text-gray-200 transition-colors duration-500">{usp.desc}</p>
                   </div>
                 </div>
@@ -118,7 +118,7 @@ const Home = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Our Core Services</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Our Core Services</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We provide professionally managed facility services delivering integrated solutions across multiple domains.
@@ -147,11 +147,11 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-medium text-primary mb-3">{service.title}</h3>
                   <p className="text-gray-600 mb-6 line-clamp-2">{service.shortDesc}</p>
                   <Link 
                     to={`/services/${service.id}`} 
-                    className="text-accent font-bold flex items-center gap-2 group-hover:translate-x-2 transition-transform"
+                    className="text-accent font-medium flex items-center gap-2 group-hover:translate-x-2 transition-transform"
                   >
                     Learn More <ArrowRight size={18} />
                   </Link>
@@ -179,8 +179,8 @@ const Home = () => {
               </div>
             </div>
             <div className="lg:w-1/2">
-              <span className="text-accent font-bold tracking-widest uppercase text-sm mb-4 block">About Solvesxx</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">Women-Led Leadership with a Legal Backbone</h2>
+              <span className="text-accent tracking-widest uppercase text-sm mb-4 block">About Solvesxx</span>
+              <h2 className="text-3xl md:text-4xl font-medium text-primary mb-6">Women-Led Leadership with a Legal Backbone</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 We are a professionally managed facility services company delivering integrated solutions. Founded, managed, and operated by five dynamic women entrepreneurs who bring diverse expertise under one unified vision.
               </p>
@@ -200,7 +200,7 @@ const Home = () => {
               </div>
               <Link 
                 to="/about" 
-                className="inline-block bg-primary text-white px-8 py-3 rounded-md font-bold hover:bg-opacity-90 transition-all"
+                className="inline-block bg-primary text-white px-8 py-3 rounded-md font-medium hover:bg-opacity-90 transition-all"
               >
                 Our Story
               </Link>
@@ -213,7 +213,7 @@ const Home = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">How We Work</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">How We Work</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Our structured approach ensures every service is executed with accountability and quality control.
@@ -240,10 +240,10 @@ const Home = () => {
               >
                 <div className="card-reveal-bg !clip-path-[circle(0%_at_50%_50%)] group-hover:!clip-path-[circle(150%_at_50%_50%)]"></div>
                 <div className="card-content">
-                  <div className="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                  <div className="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-white font-medium text-xl mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
                     {item.step}
                   </div>
-                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white transition-colors duration-500">{item.title}</h3>
+                  <h3 className="text-xl font-medium text-primary mb-3 group-hover:text-white transition-colors duration-500">{item.title}</h3>
                   <p className="text-gray-600 text-sm group-hover:text-gray-200 transition-colors duration-500">{item.desc}</p>
                 </div>
               </motion.div>
@@ -256,7 +256,7 @@ const Home = () => {
       <section className="py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">What Our Clients Say</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">What Our Clients Say</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
           </div>
 
@@ -278,7 +278,7 @@ const Home = () => {
                 </div>
                 <p className="text-gray-600 italic mb-6">"{t.text}"</p>
                 <div>
-                  <div className="font-bold text-primary">{t.name}</div>
+                  <div className="font-medium text-primary">{t.name}</div>
                   <div className="text-sm text-accent">{t.role}</div>
                 </div>
               </motion.div>
@@ -290,13 +290,13 @@ const Home = () => {
       {/* CTA Section */}
       <section className="py-20 blue-gradient text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to elevate your facility management?</h2>
+          <h2 className="text-3xl md:text-4xl font-medium mb-6">Ready to elevate your facility management?</h2>
           <p className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
             Your facility deserves management that is disciplined, ethical, and efficient. Contact us for a custom solution.
           </p>
           <Link 
             to="/contact" 
-            className="inline-block bg-accent text-white px-10 py-4 rounded-md font-bold text-lg gold-gradient hover:scale-105 transition-transform"
+            className="inline-block bg-accent text-white px-10 py-4 rounded-md font-medium text-lg gold-gradient hover:scale-105 transition-transform"
           >
             Get Started Today
           </Link>

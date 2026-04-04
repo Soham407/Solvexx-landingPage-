@@ -35,7 +35,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-medium mb-6">Contact Us</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Get in touch with our experts for a customized facility management solution.
             </p>
@@ -49,7 +49,7 @@ const Contact = () => {
             {/* Contact Info */}
             <div className="lg:w-1/3 space-y-12">
               <div>
-                <h2 className="text-3xl font-bold text-primary mb-8">Get in Touch</h2>
+                <h2 className="text-3xl font-medium text-primary mb-8">Get in Touch</h2>
                 <p className="text-gray-600 mb-10 leading-relaxed">
                   Whether you have a question about our services or need a comprehensive site audit, our team is ready to help.
                 </p>
@@ -61,7 +61,7 @@ const Contact = () => {
                     <Phone size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-primary mb-1">Email Us</h4>
+                    <h4 className="font-medium text-primary mb-1">Email Us</h4>
                     <p className="text-gray-600">admin@solvesxx.com</p>
                   </div>
                 </div>
@@ -71,7 +71,7 @@ const Contact = () => {
                     <Mail size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-primary mb-1">Visit Website</h4>
+                    <h4 className="font-medium text-primary mb-1">Visit Website</h4>
                     <p className="text-gray-600">www.solvesxx.com</p>
                   </div>
                 </div>
@@ -81,7 +81,7 @@ const Contact = () => {
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-primary mb-1">Corporate Address</h4>
+                    <h4 className="font-medium text-primary mb-1">Corporate Address</h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
                       Omkar Nandan Society, A2, 303, Near Navale Bridge, Vadgaon Bk., Pune - 410041.
                     </p>
@@ -93,7 +93,7 @@ const Contact = () => {
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-primary mb-1">Registered Address</h4>
+                    <h4 className="font-medium text-primary mb-1">Registered Address</h4>
                     <p className="text-gray-600 text-sm leading-relaxed">
                       Flat no. 2, Praneel Apartment, S.No. 899, Limaye Road, Deccan Gymkhana, Pune - 411004.
                     </p>
@@ -107,7 +107,7 @@ const Contact = () => {
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100">
                 <div className="flex items-center gap-3 mb-8">
                   <MessageSquare className="text-accent" />
-                  <h3 className="text-2xl font-bold text-primary">Send us a Message</h3>
+                  <h3 className="text-2xl font-medium text-primary">Send us a Message</h3>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -118,7 +118,7 @@ const Contact = () => {
                   )}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-primary uppercase tracking-wider">Full Name</label>
+                      <label className="text-sm text-primary uppercase tracking-wider">Full Name</label>
                       <input 
                         type="text" 
                         required
@@ -129,7 +129,7 @@ const Contact = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-primary uppercase tracking-wider">Email Address</label>
+                      <label className="text-sm text-primary uppercase tracking-wider">Email Address</label>
                       <input 
                         type="email" 
                         required
@@ -143,7 +143,7 @@ const Contact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-primary uppercase tracking-wider">Phone Number</label>
+                      <label className="text-sm text-primary uppercase tracking-wider">Phone Number</label>
                       <input 
                         type="tel" 
                         required
@@ -154,7 +154,7 @@ const Contact = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-bold text-primary uppercase tracking-wider">Service Required</label>
+                      <label className="text-sm text-primary uppercase tracking-wider">Service Required</label>
                       <select 
                         className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all appearance-none bg-white"
                         value={formState.service}
@@ -171,7 +171,7 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-primary uppercase tracking-wider">Message</label>
+                    <label className="text-sm text-primary uppercase tracking-wider">Message</label>
                     <textarea 
                       rows={5}
                       required
@@ -184,7 +184,7 @@ const Contact = () => {
 
                   <button 
                     type="submit"
-                    className="w-full bg-primary text-white py-4 rounded-lg font-bold text-lg flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all gold-gradient"
+                    className="w-full bg-primary text-white py-4 rounded-lg font-medium text-lg flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all gold-gradient"
                   >
                     Send Message <Send size={20} />
                   </button>
@@ -197,7 +197,7 @@ const Contact = () => {
 
       {/* Map Placeholder */}
       <section className="h-96 bg-gray-200 relative overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center text-gray-500 font-bold">
+        <div className="absolute inset-0 flex items-center justify-center text-gray-500 font-medium">
           [ Interactive Google Map Placeholder - Pune, India ]
         </div>
       </section>

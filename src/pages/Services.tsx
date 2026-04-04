@@ -14,7 +14,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
+            <h1 className="text-4xl md:text-5xl font-medium mb-6">Our Services</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Comprehensive facility management solutions tailored to your specific needs.
             </p>
@@ -50,7 +50,7 @@ const Services = () => {
                     </div>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">{service.title}</h3>
+                  <h3 className="text-2xl font-medium text-primary mb-4 group-hover:text-white transition-colors duration-500">{service.title}</h3>
                   <p className="text-gray-600 mb-6 flex-grow leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
                     {service.fullDesc}
                   </p>
@@ -63,13 +63,13 @@ const Services = () => {
                       </div>
                     ))}
                     {service.items.length > 4 && (
-                      <div className="text-accent text-sm font-bold group-hover:text-accent">+ {service.items.length - 4} more services</div>
+                      <div className="text-accent text-sm font-medium group-hover:text-accent">+ {service.items.length - 4} more services</div>
                     )}
                   </div>
 
                   <Link 
                     to={`/services/${service.id}`}
-                    className="inline-flex items-center gap-2 font-bold text-primary hover:text-accent transition-colors border-b-2 border-accent pb-1 w-fit group-hover:text-white group-hover:border-white"
+                    className="inline-flex items-center gap-2 font-medium text-primary hover:text-accent transition-colors border-b-2 border-accent pb-1 w-fit group-hover:text-white group-hover:border-white"
                   >
                     View Service Details <ArrowRight size={18} />
                   </Link>
@@ -83,7 +83,7 @@ const Services = () => {
       {/* Industries Served */}
       <section className="py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-primary mb-16">Industries We Serve</h2>
+          <h2 className="text-3xl font-medium text-primary mb-16">Industries We Serve</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { name: "Corporate Offices", icon: Building2 },
@@ -95,7 +95,7 @@ const Services = () => {
                 <div className="text-accent mb-4 bg-secondary p-4 rounded-full">
                   <industry.icon size={32} />
                 </div>
-                <h4 className="font-bold text-primary">{industry.name}</h4>
+                <h4 className="font-medium text-primary">{industry.name}</h4>
               </div>
             ))}
           </div>

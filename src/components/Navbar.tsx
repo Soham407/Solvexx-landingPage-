@@ -35,7 +35,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
             <img src={Logo} alt="Solvesxx Logo" className="h-10 w-auto" />
-            <div className="text-2xl font-display font-bold tracking-tighter">
+            <div className="text-2xl font-display font-medium tracking-tighter">
               <span className={scrolled ? 'text-primary' : 'text-white'}>SOLVES</span>
               <span className="text-accent">XX</span>
             </div>
@@ -58,7 +58,7 @@ const Navbar = () => {
             ))}
             <Link 
               to="/contact" 
-              className="bg-accent hover:bg-opacity-90 text-white px-6 py-2 rounded-md font-semibold transition-all gold-gradient"
+              className="bg-accent hover:bg-opacity-90 text-white px-6 py-2 rounded-md font-medium transition-all gold-gradient"
             >
               Get a Quote
             </Link>
@@ -99,7 +99,7 @@ const Navbar = () => {
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}
-                className="block w-full text-center bg-accent text-white px-6 py-3 rounded-md font-semibold gold-gradient"
+                className="block w-full text-center bg-accent text-white px-6 py-3 rounded-md font-medium gold-gradient"
               >
                 Get a Quote
               </Link>

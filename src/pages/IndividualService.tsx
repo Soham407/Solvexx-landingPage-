@@ -26,13 +26,13 @@ const IndividualService = () => {
           <div className="absolute inset-0 bg-primary/60"></div>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-white">
-          <Link to="/services" className="inline-flex items-center gap-2 text-accent font-bold mb-6 hover:translate-x-[-4px] transition-transform">
+          <Link to="/services" className="inline-flex items-center gap-2 text-accent font-medium mb-6 hover:translate-x-[-4px] transition-transform">
             <ArrowLeft size={20} /> Back to Services
           </Link>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="text-4xl md:text-6xl font-medium mb-6"
           >
             {service.title}
           </motion.h1>
@@ -47,7 +47,7 @@ const IndividualService = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-16">
             <div className="lg:w-2/3">
-              <h2 className="text-3xl font-bold text-primary mb-8">Service Overview</h2>
+              <h2 className="text-3xl font-medium text-primary mb-8">Service Overview</h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-10">
                 {service.fullDesc}
               </p>
@@ -56,23 +56,23 @@ const IndividualService = () => {
                 {service.id === 'printing-supply' ? (
                   <div className="col-span-full grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                      <h4 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Printing & Advertising Services</h4>
+                      <h4 className="text-accent font-medium uppercase tracking-widest text-sm mb-4">Printing & Advertising Services</h4>
                       <div className="flex flex-col gap-4">
                         {service.items.slice(0, 7).map((item) => (
                           <div key={item} className="flex items-center gap-4 p-4 bg-secondary rounded-xl border border-gray-100">
                             <CheckCircle2 className="text-accent shrink-0" />
-                            <span className="font-bold text-primary text-sm">{item}</span>
+                            <span className="text-primary text-sm">{item}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                     <div>
-                      <h4 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Material Supply Services</h4>
+                      <h4 className="text-accent font-medium uppercase tracking-widest text-sm mb-4">Material Supply Services</h4>
                       <div className="flex flex-col gap-4">
                         {service.items.slice(7).map((item) => (
                           <div key={item} className="flex items-center gap-4 p-4 bg-secondary rounded-xl border border-gray-100">
                             <CheckCircle2 className="text-accent shrink-0" />
-                            <span className="font-bold text-primary text-sm">{item}</span>
+                            <span className="text-primary text-sm">{item}</span>
                           </div>
                         ))}
                       </div>
@@ -82,20 +82,20 @@ const IndividualService = () => {
                   service.items.map((item) => (
                     <div key={item} className="flex items-center gap-4 p-6 bg-secondary rounded-xl border border-gray-100">
                       <CheckCircle2 className="text-accent shrink-0" />
-                      <span className="font-bold text-primary">{item}</span>
+                      <span className="text-primary">{item}</span>
                     </div>
                   ))
                 )}
               </div>
 
               <div className="bg-primary/5 p-8 rounded-2xl border-l-4 border-primary mb-12">
-                <h3 className="text-xl font-bold text-primary mb-4">Why Solvesxx for {service.title}?</h3>
+                <h3 className="text-xl font-medium text-primary mb-4">Why Solvesxx for {service.title}?</h3>
                 <p className="text-gray-600 leading-relaxed">
                   {service.brochureNote || "Our teams maintain hygiene, discipline, and seamless daily operations. We ensure clarity, visibility, and professional presentation in every task we undertake."}
                 </p>
               </div>
 
-              <h3 className="text-2xl font-bold text-primary mb-8">Service Process</h3>
+              <h3 className="text-2xl font-medium text-primary mb-8">Service Process</h3>
               <div className="space-y-6">
                 {[
                   { step: 1, title: "Initial Consultation", desc: "Understanding your specific facility needs and site constraints." },
@@ -104,11 +104,11 @@ const IndividualService = () => {
                   { step: 4, title: "Deployment & Monitoring", desc: "Deployment of trained staff with continuous supervision and quality control." }
                 ].map((p) => (
                   <div key={p.step} className="flex gap-6">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-medium">
                       {p.step}
                     </div>
                     <div>
-                      <h4 className="font-bold text-primary mb-1">{p.title}</h4>
+                      <h4 className="font-medium text-primary mb-1">{p.title}</h4>
                       <p className="text-gray-600 text-sm">{p.desc}</p>
                     </div>
                   </div>
@@ -119,13 +119,13 @@ const IndividualService = () => {
             <div className="lg:w-1/3">
               <div className="sticky top-32 space-y-8">
                 <div className="bg-primary text-white p-8 rounded-2xl shadow-xl">
-                  <h3 className="text-2xl font-bold mb-6">Need this service?</h3>
+                  <h3 className="text-2xl font-medium mb-6">Need this service?</h3>
                   <p className="text-gray-300 mb-8">
                     Contact us today for a personalized quote and site audit.
                   </p>
                   <Link 
                     to="/contact" 
-                    className="block w-full bg-accent text-white text-center py-4 rounded-lg font-bold gold-gradient hover:scale-105 transition-transform"
+                    className="block w-full bg-accent text-white text-center py-4 rounded-lg font-medium gold-gradient hover:scale-105 transition-transform"
                   >
                     Request a Quote
                   </Link>
@@ -135,13 +135,13 @@ const IndividualService = () => {
                     </div>
                     <div>
                       <div className="text-sm text-gray-400">Email us at</div>
-                      <div className="font-bold">admin@solvesxx.com</div>
+                      <div className="font-medium text-white">admin@solvesxx.com</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-                  <h4 className="font-bold text-primary mb-4">Other Services</h4>
+                  <h4 className="font-medium text-primary mb-4">Other Services</h4>
                   <div className="space-y-4">
                     {SERVICES.filter(s => s.id !== id).slice(0, 3).map(s => (
                       <Link 

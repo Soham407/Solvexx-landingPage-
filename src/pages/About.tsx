@@ -34,7 +34,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">About Solvesxx</h1>
+            <h1 className="text-4xl md:text-5xl font-medium mb-6">About Solvesxx</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               A professionally managed facility services company built on trust, integrity, and precision.
             </p>
@@ -47,7 +47,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">About The Company</h2>
+              <h2 className="text-3xl font-medium text-primary mb-6">About The Company</h2>
               <p className="text-gray-600 mb-6 leading-relaxed text-lg">
                 Solvesxx was founded on the principle that facilities are not just buildings—they are complex ecosystems. We bring a unique, legally-backed approach to facility management, ensuring that every operational detail is handled with precision, compliance, and unwavering discipline.
               </p>
@@ -55,7 +55,7 @@ const About = () => {
                 Our approach is structured and performance-driven. Every service across security, housekeeping, technical maintenance, and material supply is executed with strict accountability and rigorous quality control.
               </p>
               <div className="bg-secondary p-8 rounded-xl border-l-4 border-accent mb-8">
-                <p className="text-primary font-bold text-xl mb-2">
+                <p className="text-primary font-medium text-xl mb-2">
                   "We believe facilities are not just buildings."
                 </p>
                 <p className="italic text-primary">
@@ -68,7 +68,7 @@ const About = () => {
                 <div className="card-reveal-bg"></div>
                 <div className="card-content">
                   <Target className="text-accent mb-4 group-hover:text-accent transition-colors duration-500" size={40} />
-                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white transition-colors duration-500">Our Mission</h3>
+                  <h3 className="text-xl font-medium text-primary mb-3 group-hover:text-white transition-colors duration-500">Our Mission</h3>
                   <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
                     To deliver legally compliant, professionally managed, and performance driven facility solutions that create safe, efficient, and well maintained environments for every client we serve.
                   </p>
@@ -79,7 +79,7 @@ const About = () => {
                 <div className="card-reveal-bg"></div>
                 <div className="card-content">
                   <Eye className="text-accent mb-4 group-hover:text-accent transition-colors duration-500" size={40} />
-                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white transition-colors duration-500">Our Vision</h3>
+                  <h3 className="text-xl font-medium text-primary mb-3 group-hover:text-white transition-colors duration-500">Our Vision</h3>
                   <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
                     To become a trusted leader in integrated facility management by setting benchmarks in compliance, workforce quality, service reliability, and ethical business practices.
                   </p>
@@ -94,7 +94,7 @@ const About = () => {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Our Leadership Strength</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Our Leadership Strength</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-3xl mx-auto">
               This organization is founded, managed, and operated by five dynamic women entrepreneurs who bring diverse expertise under one unified vision. This powerful combination ensures legal security, operational efficiency, and systematic execution across every project.
@@ -114,7 +114,7 @@ const About = () => {
                 <div className="bg-secondary w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
                   <Scale size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">Two Legal Professionals</h3>
+                <h3 className="text-xl font-medium text-primary mb-4 group-hover:text-white transition-colors duration-500">Two Legal Professionals</h3>
                 <p className="text-gray-600 leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
                   Experienced lawyers managing all statutory compliance, contracts, regulatory frameworks, and client legal safeguards.
                 </p>
@@ -133,7 +133,7 @@ const About = () => {
                 <div className="bg-secondary w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
                   <Users size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">Two Administrative Experts</h3>
+                <h3 className="text-xl font-medium text-primary mb-4 group-hover:text-white transition-colors duration-500">Two Administrative Experts</h3>
                 <p className="text-gray-600 leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
                   Specialists in operational management, workforce supervision, deployment planning, and execution control.
                 </p>
@@ -152,7 +152,7 @@ const About = () => {
                 <div className="bg-secondary w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
                   <Settings size={32} />
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">One Manufacturing Operations Specialist</h3>
+                <h3 className="text-xl font-medium text-primary mb-4 group-hover:text-white transition-colors duration-500">One Manufacturing Operations Specialist</h3>
                 <p className="text-gray-600 leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
                   Expert in process management, supply chain coordination, quality systems, and production discipline.
                 </p>
@@ -168,7 +168,7 @@ const About = () => {
           <div className="bg-primary rounded-3xl p-12 md:p-20 text-white relative overflow-hidden">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Commitment</h2>
+                <h2 className="text-3xl md:text-4xl font-medium mb-8">Our Commitment</h2>
                 <div className="space-y-6">
                   {[
                     "We commit to safety.",
