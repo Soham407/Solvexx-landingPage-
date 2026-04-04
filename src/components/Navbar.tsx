@@ -62,6 +62,16 @@ const Navbar = () => {
             >
               Get a Quote
             </Link>
+            <a 
+              href="https://facilitypro-vert.vercel.app/login" 
+              className={`px-6 py-2 rounded-md font-medium transition-all border-2 ${
+                scrolled 
+                  ? 'border-primary text-primary hover:bg-primary hover:text-white' 
+                  : 'border-white text-white hover:bg-white hover:text-primary'
+              }`}
+            >
+              Login
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -103,6 +113,13 @@ const Navbar = () => {
               >
                 Get a Quote
               </Link>
+              <a
+                href="https://facilitypro-vert.vercel.app/login"
+                onClick={() => setIsOpen(false)}
+                className="block w-full text-center border-2 border-primary text-primary px-6 py-3 rounded-md font-medium mt-3"
+              >
+                Login
+              </a>
             </div>
           </motion.div>
         )}

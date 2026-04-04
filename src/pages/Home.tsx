@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { SERVICES, USPs } from '../constants';
 
 import SecurityGuardImg from '../assets/ServiceImages/Security_Guard.png';
+import ACMaintImg from '../assets/ServiceImages/AC Maint.png';
+import HousekeepingImg from '../assets/ServiceImages/Housekeeping.png';
 
 const Home = () => {
   return (
@@ -25,13 +27,13 @@ const Home = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rotate-45">
               <div className="grid grid-cols-2 grid-rows-2 gap-4 w-full h-full p-4">
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
-                  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=800" alt="Cleaning" className="w-full h-full object-cover -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
+                  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=800" alt="Cleaning" className="w-full h-full object-cover object-top -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
                 </div>
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
-                  <img src={SecurityGuardImg} alt="Security" className="w-full h-full object-cover -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
+                  <img src={SecurityGuardImg} alt="Security" className="w-full h-full object-cover object-top -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
                 </div>
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
-                  <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=800" alt="AC Service" className="w-full h-full object-cover -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
+                  <img src={ACMaintImg} alt="AC Service" className="w-full h-full object-cover object-top -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
                 </div>
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
                   <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800" alt="Landscaping" className="w-full h-full object-cover -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
@@ -136,13 +138,12 @@ const Home = () => {
                 className="group bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
               >
                 <div className="h-48 overflow-hidden relative">
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                     referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur p-2 rounded-lg text-accent">
+                  />                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur p-2 rounded-lg text-accent">
                     <service.icon size={24} />
                   </div>
                 </div>

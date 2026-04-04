@@ -20,7 +20,7 @@ const IndividualService = () => {
           <img 
             src={service.image} 
             alt={service.title} 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-primary/60"></div>

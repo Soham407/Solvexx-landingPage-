@@ -5,9 +5,7 @@ import {
   Leaf, 
   Bug, 
   Printer, 
-  Package, 
   CheckCircle2,
-  Clock,
   Scale,
   Settings,
   ShieldCheck,
@@ -15,6 +13,7 @@ import {
 } from 'lucide-react';
 
 import SecurityGuardImg from './assets/ServiceImages/Security_Guard.png';
+import ACMaintImg from './assets/ServiceImages/AC Maint.png';
 
 export interface Service {
   id: string;
@@ -76,7 +75,7 @@ export const SERVICES: Service[] = [
       'Capacitor Replacement',
       'General AC Maintenance'
     ],
-    image: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=800',
+    image: ACMaintImg,
     brochureNote: 'Our technicians ensure energy efficiency, reduced downtime, and long equipment life.'
   },
   {
