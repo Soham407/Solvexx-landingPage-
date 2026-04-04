@@ -96,14 +96,17 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-start gap-4"
+                className="group relative flex items-start gap-4 p-6 rounded-xl transition-all overflow-hidden hover:text-white"
               >
-                <div className="bg-white p-3 rounded-lg shadow-sm text-accent">
-                  <usp.icon size={24} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-primary mb-1">{usp.title}</h3>
-                  <p className="text-sm text-gray-600 leading-snug">{usp.desc}</p>
+                <div className="card-reveal-bg !bg-primary"></div>
+                <div className="card-content flex items-start gap-4">
+                  <div className="bg-white p-3 rounded-lg shadow-sm text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-500 shrink-0">
+                    <usp.icon size={24} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-primary mb-1 group-hover:text-white transition-colors duration-500">{usp.title}</h3>
+                    <p className="text-sm text-gray-600 leading-snug group-hover:text-gray-200 transition-colors duration-500">{usp.desc}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -233,13 +236,16 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="relative z-10 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-center"
+                className="group relative z-10 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-center overflow-hidden hover:text-white transition-all duration-500"
               >
-                <div className="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-6 shadow-lg">
-                  {item.step}
+                <div className="card-reveal-bg !clip-path-[circle(0%_at_50%_50%)] group-hover:!clip-path-[circle(150%_at_50%_50%)]"></div>
+                <div className="card-content">
+                  <div className="w-12 h-12 gold-gradient rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white transition-colors duration-500">{item.title}</h3>
+                  <p className="text-gray-600 text-sm group-hover:text-gray-200 transition-colors duration-500">{item.desc}</p>
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-3">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
               </motion.div>
             ))}
           </div>

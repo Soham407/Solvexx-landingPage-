@@ -64,19 +64,9 @@ const About = () => {
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <style dangerouslySetInnerHTML={{ __html: `
-                .clip-reveal {
-                  clip-path: circle(0% at 52px 52px);
-                  transition: clip-path 0.7s ease-in-out;
-                }
-                .group:hover .clip-reveal {
-                  clip-path: circle(150% at 52px 52px);
-                }
-              `}} />
-              
               <div className="group relative bg-white p-8 rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-colors duration-500 hover:text-white">
-                <div className="absolute inset-0 bg-primary z-0 clip-reveal"></div>
-                <div className="relative z-10 transition-colors duration-500">
+                <div className="card-reveal-bg"></div>
+                <div className="card-content">
                   <Target className="text-accent mb-4 group-hover:text-accent transition-colors duration-500" size={40} />
                   <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white transition-colors duration-500">Our Mission</h3>
                   <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
@@ -86,8 +76,8 @@ const About = () => {
               </div>
 
               <div className="group relative bg-white p-8 rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-colors duration-500 hover:text-white">
-                <div className="absolute inset-0 bg-primary z-0 clip-reveal"></div>
-                <div className="relative z-10 transition-colors duration-500">
+                <div className="card-reveal-bg"></div>
+                <div className="card-content">
                   <Eye className="text-accent mb-4 group-hover:text-accent transition-colors duration-500" size={40} />
                   <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white transition-colors duration-500">Our Vision</h3>
                   <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
@@ -117,15 +107,18 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100"
+              className="group relative bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden hover:text-white"
             >
-              <div className="bg-secondary w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6">
-                <Scale size={32} />
+              <div className="card-reveal-bg"></div>
+              <div className="card-content">
+                <div className="bg-secondary w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
+                  <Scale size={32} />
+                </div>
+                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">Two Legal Professionals</h3>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
+                  Experienced lawyers managing all statutory compliance, contracts, regulatory frameworks, and client legal safeguards.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-primary mb-4">Two Legal Professionals</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Experienced lawyers managing all statutory compliance, contracts, regulatory frameworks, and client legal safeguards.
-              </p>
             </motion.div>
 
             <motion.div
@@ -133,15 +126,18 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100"
+              className="group relative bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden hover:text-white"
             >
-              <div className="bg-secondary w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6">
-                <Users size={32} />
+              <div className="card-reveal-bg"></div>
+              <div className="card-content">
+                <div className="bg-secondary w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
+                  <Users size={32} />
+                </div>
+                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">Two Administrative Experts</h3>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
+                  Specialists in operational management, workforce supervision, deployment planning, and execution control.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-primary mb-4">Two Administrative Experts</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Specialists in operational management, workforce supervision, deployment planning, and execution control.
-              </p>
             </motion.div>
 
             <motion.div
@@ -149,15 +145,18 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100"
+              className="group relative bg-white p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden hover:text-white"
             >
-              <div className="bg-secondary w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6">
-                <Settings size={32} />
+              <div className="card-reveal-bg"></div>
+              <div className="card-content">
+                <div className="bg-secondary w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-colors duration-500">
+                  <Settings size={32} />
+                </div>
+                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">One Manufacturing Operations Specialist</h3>
+                <p className="text-gray-600 leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
+                  Expert in process management, supply chain coordination, quality systems, and production discipline.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-primary mb-4">One Manufacturing Operations Specialist</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Expert in process management, supply chain coordination, quality systems, and production discipline.
-              </p>
             </motion.div>
           </div>
         </div>

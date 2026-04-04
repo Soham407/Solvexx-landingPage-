@@ -64,15 +64,18 @@ const WhyUs = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="p-10 rounded-2xl bg-gray-50 border border-gray-100 hover:border-accent hover:shadow-xl transition-all group"
+                className="group relative p-10 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-xl transition-all overflow-hidden hover:text-white"
               >
-                <div className="bg-white w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6 shadow-sm group-hover:bg-accent group-hover:text-white transition-colors">
-                  <item.icon size={32} />
+                <div className="card-reveal-bg"></div>
+                <div className="card-content">
+                  <div className="bg-white w-16 h-16 rounded-xl flex items-center justify-center text-accent mb-6 shadow-sm group-hover:bg-accent group-hover:text-white transition-colors duration-500">
+                    <item.icon size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-white transition-colors duration-500">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-4">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {item.desc}
-                </p>
               </motion.div>
             ))}
           </div>
