@@ -65,7 +65,25 @@ const About = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="group relative bg-white p-8 rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-colors duration-500 hover:text-white">
-                <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
+                <div 
+                  className="absolute inset-0 bg-primary z-0 transition-all duration-700 ease-in-out"
+                  style={{ clipPath: 'circle(0% at 52px 52px)' }}
+                >
+                  <div className="absolute inset-0 group-hover:clip-path-reveal"></div>
+                </div>
+                {/* Custom style for the reveal since Tailwind doesn't have native clip-path animation utils */}
+                <style dangerouslySetInnerHTML={{ __html: `
+                  .group:hover .group-hover\\:clip-path-reveal {
+                    clip-path: circle(150% at 52px 52px);
+                  }
+                  .group-hover\\:clip-path-reveal {
+                    background-color: var(--color-primary, #001f3f);
+                    position: absolute;
+                    inset: 0;
+                    clip-path: circle(0% at 52px 52px);
+                    transition: clip-path 0.7s ease-in-out;
+                  }
+                `}} />
                 <div className="relative z-10 transition-colors duration-500">
                   <Target className="text-accent mb-4 group-hover:text-accent transition-colors duration-500" size={40} />
                   <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white transition-colors duration-500">Our Mission</h3>
@@ -75,7 +93,15 @@ const About = () => {
                 </div>
               </div>
               <div className="group relative bg-white p-8 rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-colors duration-500 hover:text-white">
-                <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
+                <div 
+                  className="absolute inset-0 bg-primary z-0 group-hover:clip-path-reveal-2"
+                  style={{ clipPath: 'circle(0% at 52px 52px)', transition: 'clip-path 0.7s ease-in-out' }}
+                ></div>
+                <style dangerouslySetInnerHTML={{ __html: `
+                  .group:hover .group-hover\\:clip-path-reveal-2 {
+                    clip-path: circle(150% at 52px 52px) !important;
+                  }
+                `}} />
                 <div className="relative z-10 transition-colors duration-500">
                   <Eye className="text-accent mb-4 group-hover:text-accent transition-colors duration-500" size={40} />
                   <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white transition-colors duration-500">Our Vision</h3>
