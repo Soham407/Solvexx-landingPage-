@@ -44,7 +44,8 @@
   z-index: 0;
 }
 
-.group:hover .card-reveal-bg {
+.group:hover .card-reveal-bg,
+.group:active .card-reveal-bg {
   clip-path: circle(150% at 52px 52px);
 }
 
@@ -52,5 +53,21 @@
   position: relative;
   z-index: 10;
   transition: color 0.5s ease-in-out;
+}
+
+/* Ensure text colors change when the background expands */
+.group:hover .card-content,
+.group:active .card-content {
+  color: white !important;
+}
+
+.group:hover .card-content p,
+.group:active .card-content p {
+  color: #e5e7eb !important; /* gray-200 */
+}
+
+.group:hover .card-content h3,
+.group:active .card-content h3 {
+  color: white !important;
 }
 
