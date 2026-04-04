@@ -4,6 +4,8 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SERVICES, USPs } from '../constants';
 
+import SecurityGuardImg from '../assets/ServiceImages/Security_Guard.png';
+
 const Home = () => {
   return (
     <div className="overflow-hidden">
@@ -26,7 +28,7 @@ const Home = () => {
                   <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=800" alt="Cleaning" className="w-full h-full object-cover -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
                 </div>
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
-                  <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&q=80&w=800" alt="Security" className="w-full h-full object-cover -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
+                  <img src={SecurityGuardImg} alt="Security" className="w-full h-full object-cover -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
                 </div>
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
                   <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&q=80&w=800" alt="AC Service" className="w-full h-full object-cover -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
@@ -80,8 +82,12 @@ const Home = () => {
       </section>
 
       {/* USPs Strip */}
-      <section className="bg-secondary py-12">
+      <section className="bg-secondary py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Why Solvexx</h2>
+            <div className="w-20 h-1.5 bg-accent mx-auto"></div>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {USPs.map((usp, index) => (
               <motion.div

@@ -14,6 +14,8 @@ import {
   Briefcase
 } from 'lucide-react';
 
+import SecurityGuardImg from './assets/ServiceImages/Security_Guard.png';
+
 export interface Service {
   id: string;
   title: string;
@@ -40,7 +42,7 @@ export const SERVICES: Service[] = [
       'Gunman', 
       'Door Keeper'
     ],
-    image: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&q=80&w=800',
+    image: SecurityGuardImg,
     brochureNote: 'Each guard is professionally trained, uniformed, and supervised to maintain vigilance and safety standards.'
   },
   {
