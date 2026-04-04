@@ -64,19 +64,25 @@ const About = () => {
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-                <Target className="text-accent mb-4" size={40} />
-                <h3 className="text-xl font-bold text-primary mb-3">Our Mission</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  To deliver legally compliant, professionally managed, and performance driven facility solutions that create safe, efficient, and well maintained environments for every client we serve.
-                </p>
+              <div className="group relative bg-white p-8 rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-colors duration-500 hover:text-white">
+                <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
+                <div className="relative z-10 transition-colors duration-500">
+                  <Target className="text-accent mb-4 group-hover:text-accent transition-colors duration-500" size={40} />
+                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white transition-colors duration-500">Our Mission</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
+                    To deliver legally compliant, professionally managed, and performance driven facility solutions that create safe, efficient, and well maintained environments for every client we serve.
+                  </p>
+                </div>
               </div>
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-                <Eye className="text-accent mb-4" size={40} />
-                <h3 className="text-xl font-bold text-primary mb-3">Our Vision</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  To become a trusted leader in integrated facility management by setting benchmarks in compliance, workforce quality, service reliability, and ethical business practices.
-                </p>
+              <div className="group relative bg-white p-8 rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-colors duration-500 hover:text-white">
+                <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
+                <div className="relative z-10 transition-colors duration-500">
+                  <Eye className="text-accent mb-4 group-hover:text-accent transition-colors duration-500" size={40} />
+                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-white transition-colors duration-500">Our Vision</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
+                    To become a trusted leader in integrated facility management by setting benchmarks in compliance, workforce quality, service reliability, and ethical business practices.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
