@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import Logo from '../assets/Logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/Logo.png" alt="Solvesxx Logo" className="h-10 w-auto" />
+            <img src={Logo} alt="Solvesxx Logo" className="h-10 w-auto" />
             <div className="text-2xl font-display font-bold tracking-tighter">
               <span className={scrolled ? 'text-primary' : 'text-white'}>SOLVES</span>
               <span className="text-accent">XX</span>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter } from 'lucide-react';
+import Logo from '../assets/Logo.png';
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <img src="/Logo.png" alt="Solvesxx Logo" className="h-12 w-auto" />
+              <img src={Logo} alt="Solvesxx Logo" className="h-12 w-auto" />
               <div className="text-3xl font-display font-bold tracking-tighter">
                 <span>SOLVES</span><span className="text-accent">XX</span>
               </div>
