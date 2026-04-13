@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F6F8FB" />
+      <stop offset="100%" stop-color="#E7EEF6" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)" />
+  <rect x="120" y="120" width="960" height="560" rx="36" fill="#FFFFFF" />
+  <rect x="180" y="220" width="240" height="300" rx="28" fill="#052D56" />
+  <path d="M310 280 C340 250 390 260 405 305 C418 347 390 395 345 405 C300 417 255 390 248 345 C242 309 270 286 310 280 Z" fill="#D4AF37" />
+  <rect x="500" y="220" width="500" height="72" rx="20" fill="#EDF3F8" />
+  <rect x="500" y="330" width="500" height="72" rx="20" fill="#EDF3F8" />
+  <rect x="500" y="440" width="500" height="72" rx="20" fill="#EDF3F8" />
+  <circle cx="545" cy="256" r="12" fill="#D4AF37" />
+  <circle cx="545" cy="366" r="12" fill="#D4AF37" />
+  <circle cx="545" cy="476" r="12" fill="#D4AF37" />
+  <text x="180" y="620" fill="#052D56" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700">Pest Control Services</text>
+  <text x="180" y="670" fill="#5B6B80" font-family="Inter, Arial, sans-serif" font-size="28">Approved treatments, preventive planning, and recurring control support.</text>
+</svg>

@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, ShieldCheck, Scale, Users, Settings, Briefcase } from 'lucide-react';
+import { CheckCircle2, ClipboardCheck, FileText, ShieldCheck, Scale, Users, Settings, Briefcase } from 'lucide-react';
+import SecurityGuardImg from '../assets/ServiceImages/Security_Guard.jpg';
+import { CERTIFICATION } from '../site';
+import { useUiMotion } from '../hooks/useUiMotion';
 
 const WhyUs = () => {
+  const shouldReduceMotion = useUiMotion();
   const differentiators = [
     {
       title: "Women Led Leadership with Legal Backbone",
@@ -11,17 +15,17 @@ const WhyUs = () => {
     },
     {
       title: "Strong Compliance & Contract Transparency",
-      desc: "We ensure all statutory compliance and maintain complete transparency in our contracts.",
+      desc: "We ensure statutory compliance, document clarity, and transparent commercial understanding across engagements.",
       icon: Scale
     },
     {
       title: "Structured Administrative Control",
-      desc: "Every service is executed with accountability, supervision, and rigorous quality control.",
+      desc: "Every service is executed with accountability, supervision, rigorous quality control, and action-oriented operating follow-through.",
       icon: Settings
     },
     {
       title: "Industrial Process Discipline",
-      desc: "Our approach is structured and performance driven, bringing industrial-grade discipline to facility management.",
+      desc: "Our approach is structured and performance driven, bringing industrial-grade process management and production discipline to facility management.",
       icon: Briefcase
     },
     {
@@ -31,7 +35,7 @@ const WhyUs = () => {
     },
     {
       title: "End to End Facility Solutions Under One Roof",
-      desc: "Complete facility and infrastructure solutions managed with integrity and delivered with precision.",
+      desc: "Complete facility, hygiene, maintenance, supply, and support solutions managed under one operating umbrella.",
       icon: CheckCircle2
     }
   ];
@@ -42,13 +46,14 @@ const WhyUs = () => {
       <section className="bg-primary pt-32 pb-24 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
           >
             <h1 className="text-4xl md:text-5xl font-medium mb-6">Why Choose Us</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               What makes Solvesxx different from other facility management providers.
             </p>
+            <p className="mt-6 text-sm uppercase tracking-[0.24em] text-accent">{CERTIFICATION}</p>
           </motion.div>
         </div>
       </section>
@@ -60,9 +65,9 @@ const WhyUs = () => {
             {differentiators.map((item, index) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
+                initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.95 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="group relative p-10 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-xl transition-all overflow-hidden hover:text-white"
               >
@@ -82,32 +87,41 @@ const WhyUs = () => {
         </div>
       </section>
 
-      {/* Trust Section */}
+      {/* Operating Model */}
       <section className="py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-medium text-primary mb-8">Your facility deserves management that is disciplined, ethical, and efficient.</h2>
+              <h2 className="text-3xl md:text-4xl font-medium text-primary mb-8">Your facility deserves documented control, not vague promises.</h2>
               <p className="text-gray-600 mb-10 text-lg leading-relaxed">
-                We don't just provide services; we manage ecosystems. Our commitment to compliance and quality control ensures that your infrastructure is in safe hands.
+                Solvesxx is positioned around operating discipline. We review requirement clarity, deployment fit, reporting flow, and commercial transparency before execution starts.
               </p>
-              <div className="grid grid-cols-2 gap-8">
-                <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
-                  <div className="text-4xl font-medium text-accent mb-2">100%</div>
-                  <div className="text-sm text-primary uppercase tracking-wider">Compliance</div>
-                </div>
-                <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
-                  <div className="text-4xl font-medium text-accent mb-2">24/7</div>
-                  <div className="text-sm text-primary uppercase tracking-wider">Support</div>
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  {
+                    title: 'Requirement Review',
+                    desc: 'Scope, headcount, site type, and frequency are aligned before quoting.',
+                    icon: ClipboardCheck,
+                  },
+                  {
+                    title: 'Reporting Clarity',
+                    desc: 'Escalation routes and operating contacts are defined before deployment.',
+                    icon: FileText,
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="p-6 bg-white rounded-2xl shadow-sm">
+                    <item.icon className="text-accent mb-4" size={24} />
+                    <div className="text-lg font-medium text-primary mb-2">{item.title}</div>
+                    <div className="text-sm text-gray-600 leading-relaxed">{item.desc}</div>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="lg:w-1/2">
               <img 
-                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" 
-                alt="Industrial Facility Management" 
+                src={SecurityGuardImg}
+                alt="Managed security deployment" 
                 className="rounded-3xl shadow-2xl"
-                referrerPolicy="no-referrer"
               />
             </div>
           </div>

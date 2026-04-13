@@ -2,9 +2,13 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Building2, Home, Factory, GraduationCap } from 'lucide-react';
-import { SERVICES } from '../constants';
+import { CORE_SERVICES, SUPPORT_SERVICES } from '../constants';
+import { CERTIFICATION } from '../site';
+import { useUiMotion } from '../hooks/useUiMotion';
 
 const Services = () => {
+  const shouldReduceMotion = useUiMotion();
+
   return (
     <div>
       {/* Header */}
@@ -16,8 +20,9 @@ const Services = () => {
           >
             <h1 className="text-4xl md:text-5xl font-medium mb-6">Our Services</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Comprehensive facility management solutions tailored to your specific needs.
+              Comprehensive facility, hygiene, supply, and support solutions tailored to your operating requirements.
             </p>
+            <p className="mt-6 text-sm uppercase tracking-[0.24em] text-accent">{CERTIFICATION}</p>
           </motion.div>
         </div>
       </section>
@@ -25,13 +30,17 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-sm uppercase tracking-[0.28em] text-accent mb-3">Core Services</p>
+            <h2 className="text-3xl font-medium text-primary">Facility Operations</h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {SERVICES.map((service, index) => (
+            {CORE_SERVICES.map((service, index) => (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="group relative flex flex-col h-full p-6 rounded-2xl border border-transparent hover:border-gray-100 transition-all duration-500 overflow-hidden hover:text-white"
               >
@@ -74,6 +83,41 @@ const Services = () => {
                     View Service Details <ArrowRight size={18} />
                   </Link>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="text-sm uppercase tracking-[0.28em] text-accent mb-3">Business Support Services</p>
+            <h2 className="text-3xl font-medium text-primary mb-4">Additional Capability Areas</h2>
+            <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              These are support capabilities that extend the company’s operational scope beyond the primary facility-management service lines.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {SUPPORT_SERVICES.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm"
+              >
+                <service.icon className="text-accent mb-5" size={28} />
+                <h3 className="text-xl font-medium text-primary mb-3">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed mb-6">{service.shortDesc}</p>
+                <Link
+                  to={`/services/${service.id}`}
+                  className="inline-flex items-center gap-2 font-medium text-primary hover:text-accent transition-colors"
+                >
+                  View Details <ArrowRight size={18} />
+                </Link>
               </motion.div>
             ))}
           </div>

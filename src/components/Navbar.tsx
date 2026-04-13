@@ -1,19 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import Logo from '../assets/Logo.png';
+import Logo from '../assets/Logo-optimized.png';
+import { CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../site';
+import { SERVICES } from '../constants';
+import { useUiMotion } from '../hooks/useUiMotion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const shouldReduceMotion = useUiMotion();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -24,6 +32,10 @@ const Navbar = () => {
   ];
 
   const isHome = location.pathname === '/';
+  const activeService = location.pathname.startsWith('/services/')
+    ? SERVICES.find(({ id }) => location.pathname === `/services/${id}`)
+    : undefined;
+  const primaryCtaLabel = activeService?.ctaLabel || 'Request a Quote';
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
@@ -60,24 +72,38 @@ const Navbar = () => {
               to="/contact" 
               className="bg-accent hover:bg-opacity-90 text-white px-6 py-2 rounded-md font-medium transition-all gold-gradient"
             >
-              Get a Quote
+              {primaryCtaLabel}
             </Link>
-            <a 
-              href="https://facilitypro-vert.vercel.app/login" 
-              className={`px-6 py-2 rounded-md font-medium transition-all border-2 ${
-                scrolled 
-                  ? 'border-primary text-primary hover:bg-primary hover:text-white' 
-                  : 'border-white text-white hover:bg-white hover:text-primary'
-              }`}
-            >
-              Login
-            </a>
+            {CONTACT_PHONE ? (
+              <a
+                href={`tel:${CONTACT_PHONE}`}
+                className={`px-6 py-2 rounded-md font-medium transition-all border-2 ${
+                  scrolled
+                    ? 'border-primary text-primary hover:bg-primary hover:text-white'
+                    : 'border-white text-white hover:bg-white hover:text-primary'
+                }`}
+              >
+                Call Now
+              </a>
+            ) : CONTACT_PHONE_DISPLAY ? (
+              <span
+                className={`px-6 py-2 rounded-md font-medium transition-all border-2 ${
+                  scrolled ? 'border-primary text-primary' : 'border-white text-white'
+                }`}
+              >
+                {CONTACT_PHONE_DISPLAY}
+              </span>
+            ) : null}
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button 
               onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
+              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
               className={scrolled ? 'text-primary' : 'text-white'}
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -90,9 +116,10 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            id="mobile-navigation"
             className="md:hidden bg-white border-t"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
@@ -111,15 +138,21 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className="block w-full text-center bg-accent text-white px-6 py-3 rounded-md font-medium gold-gradient"
               >
-                Get a Quote
+                {primaryCtaLabel}
               </Link>
-              <a
-                href="https://facilitypro-vert.vercel.app/login"
-                onClick={() => setIsOpen(false)}
-                className="block w-full text-center border-2 border-primary text-primary px-6 py-3 rounded-md font-medium mt-3"
-              >
-                Login
-              </a>
+              {CONTACT_PHONE ? (
+                <a
+                  href={`tel:${CONTACT_PHONE}`}
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full text-center border-2 border-primary text-primary px-6 py-3 rounded-md font-medium mt-3"
+                >
+                  Call Now
+                </a>
+              ) : CONTACT_PHONE_DISPLAY ? (
+                <div className="block w-full text-center border-2 border-primary text-primary px-6 py-3 rounded-md font-medium mt-3">
+                  {CONTACT_PHONE_DISPLAY}
+                </div>
+              ) : null}
             </div>
           </motion.div>
         )}

@@ -1,7 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Linkedin, Twitter } from 'lucide-react';
-import Logo from '../assets/Logo.png';
+import { Globe, Mail, MapPin, Phone } from 'lucide-react';
+import Logo from '../assets/Logo-optimized.png';
+import {
+  CERTIFICATION,
+  CIN_NUMBER,
+  CONTACT_ADDRESSES,
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_PHONES,
+  CONTACT_PHONE_DISPLAY,
+  CONTACT_RESPONSE_COMMITMENT,
+  GST_NUMBER,
+  LEGAL_NAME,
+  SITE_TAGLINE,
+  WEBSITE_HOST,
+} from '../site';
 
 const Footer = () => {
   return (
@@ -17,13 +31,53 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Complete Facility & Infrastructure Solutions. Managed with Integrity. Delivered with Precision.
+              {SITE_TAGLINE} Managed with Integrity. Delivered with Precision.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="hover:text-accent transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-accent transition-colors"><Linkedin size={20} /></a>
-              <a href="#" className="hover:text-accent transition-colors"><Twitter size={20} /></a>
-            </div>
+            <p className="text-sm text-gray-400 mb-6">
+              {CONTACT_RESPONSE_COMMITMENT}
+            </p>
+            <p className="text-sm text-gray-400 mb-2">{CERTIFICATION}</p>
+            <p className="text-xs text-gray-500">GST: {GST_NUMBER}</p>
+            <p className="text-xs text-gray-500 mb-6">CIN: {CIN_NUMBER}</p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-gray-200 transition-colors hover:border-accent hover:text-white"
+              >
+                <Mail size={16} />
+                Email Us
+              </a>
+              <a
+                href={`https://${WEBSITE_HOST}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-gray-200 transition-colors hover:border-accent hover:text-white"
+              >
+                <Globe size={16} />
+                Visit Website
+              </a>
+              {CONTACT_PHONE ? (
+                <a
+                  href={`tel:${CONTACT_PHONE}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-gray-200 transition-colors hover:border-accent hover:text-white"
+                >
+                  <Phone size={16} />
+                  Call Us
+              </a>
+            ) : null}
+            {!CONTACT_PHONE
+              ? CONTACT_PHONES.map((phone) => (
+                  <a
+                    key={phone}
+                    href={`tel:${phone}`}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-gray-200 transition-colors hover:border-accent hover:text-white"
+                  >
+                    <Phone size={16} />
+                    {phone}
+                  </a>
+                ))
+              : null}
+          </div>
           </div>
 
           {/* Quick Links */}
@@ -57,7 +111,7 @@ const Footer = () => {
                 <div>
                   <div className="text-accent text-xs uppercase mb-1">Corporate Office</div>
                   <span className="text-gray-300 text-sm">
-                    Omkar Nandan Society, A2, 303, Near Navale Bridge, Vadgaon Bk., Pune - 410041.
+                    {CONTACT_ADDRESSES.corporate}
                   </span>
                 </div>
               </li>
@@ -66,24 +120,43 @@ const Footer = () => {
                 <div>
                   <div className="text-accent text-xs uppercase mb-1">Registered Office</div>
                   <span className="text-gray-300 text-sm">
-                    Flat no. 2, Praneel Apartment, S.No. 899, Limaye Road, Deccan Gymkhana, Pune - 411004.
+                    {CONTACT_ADDRESSES.registered}
                   </span>
                 </div>
               </li>
               <li className="flex items-center space-x-3">
-                <Phone className="text-accent shrink-0" size={20} />
-                <span className="text-gray-300 text-sm">admin@solvesxx.com</span>
+                <Mail className="text-accent shrink-0" size={20} />
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-300 text-sm hover:text-accent transition-colors">
+                  {CONTACT_EMAIL}
+                </a>
               </li>
               <li className="flex items-center space-x-3">
-                <Mail className="text-accent shrink-0" size={20} />
-                <span className="text-gray-300 text-sm">www.solvesxx.com</span>
+                <Phone className="text-accent shrink-0" size={20} />
+                {CONTACT_PHONE ? (
+                  <a href={`tel:${CONTACT_PHONE}`} className="text-gray-300 text-sm hover:text-accent transition-colors">
+                    {CONTACT_PHONE_DISPLAY}
+                  </a>
+                ) : (
+                  <span className="text-gray-300 text-sm">{CONTACT_PHONE_DISPLAY}</span>
+                )}
+              </li>
+              <li className="flex items-center space-x-3">
+                <Globe className="text-accent shrink-0" size={20} />
+                <a
+                  href={`https://${WEBSITE_HOST}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-gray-300 text-sm hover:text-accent transition-colors"
+                >
+                  {WEBSITE_HOST}
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} Solvesxx (Powerfull Solutions Pvt. Ltd.). All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Solvesxx ({LEGAL_NAME}). All Rights Reserved.</p>
         </div>
       </div>
     </footer>

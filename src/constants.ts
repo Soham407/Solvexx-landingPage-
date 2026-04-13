@@ -9,11 +9,23 @@ import {
   Scale,
   Settings,
   ShieldCheck,
-  Briefcase
+  Briefcase,
+  Camera,
+  SprayCan,
+  Trash2,
+  Coffee,
+  Package,
+  Gift,
+  ShipWheel,
+  FileText
 } from 'lucide-react';
 
-import SecurityGuardImg from './assets/ServiceImages/Security_Guard.png';
-import ACMaintImg from './assets/ServiceImages/AC Maint.png';
+import SecurityGuardImg from './assets/ServiceImages/Security_Guard.jpg';
+import ACMaintImg from './assets/ServiceImages/AC Maint.jpg';
+import HousekeepingImg from './assets/ServiceImages/Housekeeping.png';
+import LandscapingImg from './assets/ServiceImages/Pest Control Materials.png';
+import PestControlImg from './assets/ServiceImages/Pest Control.png';
+import PrintingSupplyImg from './assets/ServiceImages/Printing.png';
 
 export interface Service {
   id: string;
@@ -24,9 +36,11 @@ export interface Service {
   items: string[];
   image: string;
   brochureNote?: string;
+  category: 'core' | 'support';
+  ctaLabel: string;
 }
 
-export const SERVICES: Service[] = [
+export const CORE_SERVICES: Service[] = [
   {
     id: 'security',
     title: 'Security Services',
@@ -42,7 +56,9 @@ export const SERVICES: Service[] = [
       'Door Keeper'
     ],
     image: SecurityGuardImg,
-    brochureNote: 'Each guard is professionally trained, uniformed, and supervised to maintain vigilance and safety standards.'
+    brochureNote: 'Each guard is professionally trained, uniformed, and supervised to maintain vigilance and safety standards.',
+    category: 'core',
+    ctaLabel: 'Request Security Assessment',
   },
   {
     id: 'housekeeping',
@@ -56,8 +72,10 @@ export const SERVICES: Service[] = [
       'Office Boy', 
       'Office Girl'
     ],
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=800',
-    brochureNote: 'Our teams maintain hygiene, discipline, and seamless daily operations across offices, residential complexes, institutions, and industrial premises.'
+    image: HousekeepingImg,
+    brochureNote: 'Our teams maintain hygiene, discipline, and seamless daily operations across offices, residential complexes, institutions, and industrial premises.',
+    category: 'core',
+    ctaLabel: 'Request Housekeeping Assessment',
   },
   {
     id: 'ac-services',
@@ -76,7 +94,9 @@ export const SERVICES: Service[] = [
       'General AC Maintenance'
     ],
     image: ACMaintImg,
-    brochureNote: 'Our technicians ensure energy efficiency, reduced downtime, and long equipment life.'
+    brochureNote: 'Our technicians ensure energy efficiency, reduced downtime, and long equipment life.',
+    category: 'core',
+    ctaLabel: 'Request AC Service Review',
   },
   {
     id: 'landscaping',
@@ -91,8 +111,10 @@ export const SERVICES: Service[] = [
       'Landscape Maintenance', 
       'Seasonal Plantation'
     ],
-    image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800',
-    brochureNote: 'We combine aesthetics with systematic plant care practices.'
+    image: LandscapingImg,
+    brochureNote: 'We combine aesthetics with systematic plant care practices.',
+    category: 'core',
+    ctaLabel: 'Request Plantation Assessment',
   },
   {
     id: 'pest-control',
@@ -110,8 +132,10 @@ export const SERVICES: Service[] = [
       'Spraying',
       'Gel Application'
     ],
-    image: 'https://images.unsplash.com/photo-1624927637280-f033784c1279?auto=format&fit=crop&q=80&w=800',
-    brochureNote: 'Our treatments are result oriented and focused on long term prevention.'
+    image: PestControlImg,
+    brochureNote: 'Our treatments are result oriented and focused on long term prevention.',
+    category: 'core',
+    ctaLabel: 'Request Pest Control Assessment',
   },
   {
     id: 'printing-supply',
@@ -138,10 +162,173 @@ export const SERVICES: Service[] = [
       'Stationery Materials',
       'Corporate Gifting Materials'
     ],
-    image: 'https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&q=80&w=800',
-    brochureNote: 'We ensure clarity, visibility, and professional presentation. Quality assured materials. On time delivery.'
+    image: PrintingSupplyImg,
+    brochureNote: 'We ensure clarity, visibility, and professional presentation. Quality assured materials. On time delivery.',
+    category: 'core',
+    ctaLabel: 'Request Supply Assessment',
   }
 ];
+
+export const SUPPORT_SERVICES: Service[] = [
+  {
+    id: 'ai-surveillance',
+    title: 'AI Surveillance & Tripwire Monitoring',
+    shortDesc: 'Technology-led monitoring with after-hours alert workflows.',
+    fullDesc: 'Solvesxx supports AI-enabled surveillance requirements including facial-recognition-led monitoring and tripwire-triggered after-hours alerts for unauthorized entry visibility.',
+    icon: Camera,
+    items: [
+      'Door Security Cameras',
+      'AI Facial Recognition',
+      'Tripwire Alerts',
+      'Unauthorized Entry Monitoring',
+      'After-Hours Alert Support',
+    ],
+    image: SecurityGuardImg,
+    brochureNote: 'The surveillance setup is positioned as more than passive recording. It supports action-oriented monitoring and instant alert logic.',
+    category: 'support',
+    ctaLabel: 'Request Surveillance Review',
+  },
+  {
+    id: 'deep-cleaning',
+    title: 'Deep Cleaning Services',
+    shortDesc: 'Structured deep-cleaning support for hygiene-sensitive environments.',
+    fullDesc: 'We provide deep-cleaning support for offices, institutions, residential sites, and commercial facilities where hygiene reset, sanitation discipline, and detailed cleaning matter.',
+    icon: SprayCan,
+    items: [
+      'Floor Deep Cleaning',
+      'Washroom Hygiene Reset',
+      'Common Area Cleaning',
+      'Surface Sanitization',
+      'Post-Occupancy Cleanup',
+    ],
+    image: HousekeepingImg,
+    brochureNote: 'The brochure positions deep cleaning as part of Solvesxx’s hygiene-first operating capability.',
+    category: 'support',
+    ctaLabel: 'Request Deep Cleaning Assessment',
+  },
+  {
+    id: 'waste-management',
+    title: 'Waste Management',
+    shortDesc: 'Cleaner site operations through disciplined waste-handling support.',
+    fullDesc: 'Solvesxx supports cleaner and safer environments through waste-management-oriented operational assistance aligned with hygiene and site discipline.',
+    icon: Trash2,
+    items: [
+      'Collection Coordination',
+      'Segregation Support',
+      'Site Cleanliness Planning',
+      'Disposal Workflow Support',
+    ],
+    image: HousekeepingImg,
+    brochureNote: 'Waste management is positioned as part of the company’s broader clean and healthy environment approach.',
+    category: 'support',
+    ctaLabel: 'Request Waste Management Review',
+  },
+  {
+    id: 'cleaning-chemicals',
+    title: 'Cleaning Chemicals & Fragrances',
+    shortDesc: 'Commercial cleaning inputs and fragrance support for daily operations.',
+    fullDesc: 'We support facilities with cleaning chemicals, hygiene consumables, and fragrance-related materials aligned with commercial site maintenance needs.',
+    icon: Package,
+    items: [
+      'Commercial Cleaning Chemicals',
+      'Fragrance Materials',
+      'Air Fresheners',
+      'Routine Cleaning Consumables',
+    ],
+    image: PrintingSupplyImg,
+    brochureNote: 'The brochure highlights eco-conscious cleaning support and consumable supply as part of day-to-day facility readiness.',
+    category: 'support',
+    ctaLabel: 'Request Chemical Supply Review',
+  },
+  {
+    id: 'beverage-services',
+    title: 'Beverage Services',
+    shortDesc: 'Hot and cold beverage material support for offices and managed sites.',
+    fullDesc: 'Solvesxx supports office and facility beverage needs with premium hot beverage materials, cold beverage options, and related pantry consumables.',
+    icon: Coffee,
+    items: [
+      'Premium Coffee Blends',
+      'Tea Materials',
+      'Cold Beverage Inputs',
+      'Natural-Flavor Drink Support',
+      'Pantry Consumables',
+    ],
+    image: PrintingSupplyImg,
+    brochureNote: 'The brochure notes premium ingredients for hot beverages and natural flavors for cold beverages.',
+    category: 'support',
+    ctaLabel: 'Request Beverage Service Review',
+  },
+  {
+    id: 'eco-disposables',
+    title: 'Eco-Friendly Disposables',
+    shortDesc: 'Paper cups and disposable supply support for day-to-day facility use.',
+    fullDesc: 'We provide eco-friendly disposable material support including paper cups and related consumables for offices, cafes, and managed events.',
+    icon: Package,
+    items: [
+      'Paper Cups',
+      'Office Pantry Disposables',
+      'Event Consumption Materials',
+      'Eco-Friendly Supply Options',
+    ],
+    image: PrintingSupplyImg,
+    brochureNote: 'Eco-friendly supply support is presented as a practical extension of Solvesxx’s facility consumable capability.',
+    category: 'support',
+    ctaLabel: 'Request Disposable Supply Review',
+  },
+  {
+    id: 'corporate-gifting',
+    title: 'Corporate Gifting',
+    shortDesc: 'Customized gifting support designed to reflect your brand.',
+    fullDesc: 'Solvesxx supports customized corporate gifting requirements for clients, partners, and employees with an emphasis on brand-reflective presentation.',
+    icon: Gift,
+    items: [
+      'Customized Gift Planning',
+      'Brand-Reflective Gifting',
+      'Employee Gifting Support',
+      'Client Engagement Materials',
+    ],
+    image: PrintingSupplyImg,
+    brochureNote: 'The brochure explicitly positions these gifting services as designed to reflect the client’s brand.',
+    category: 'support',
+    ctaLabel: 'Request Corporate Gifting Review',
+  },
+  {
+    id: 'import-export',
+    title: 'Import & Export Coordination',
+    shortDesc: 'Logistics and supply chain support for sourcing and movement.',
+    fullDesc: 'The business also supports import and export coordination through logistics, material movement planning, and supply chain alignment.',
+    icon: ShipWheel,
+    items: [
+      'Logistics Coordination',
+      'Supply Chain Support',
+      'Material Movement Planning',
+      'Operational Sourcing Assistance',
+    ],
+    image: PrintingSupplyImg,
+    brochureNote: 'This capability is aligned with the leadership team’s operational and supply-chain-oriented experience.',
+    category: 'support',
+    ctaLabel: 'Request Supply Chain Review',
+  },
+  {
+    id: 'contract-management',
+    title: 'Contract Management Support',
+    shortDesc: 'Cloud-based contract management with deadline and renewal visibility.',
+    fullDesc: 'Solvesxx positions legal service support around a cloud-based contract management system with automated deadline alerts and renewal tracking.',
+    icon: FileText,
+    items: [
+      'Cloud-Based Contract Management',
+      'Renewal Deadline Alerts',
+      'Contract Visibility Support',
+      'Documentation Tracking',
+    ],
+    image: PrintingSupplyImg,
+    brochureNote: 'The brochure specifically mentions cloud-based contract management with automated deadline alerts for renewals.',
+    category: 'support',
+    ctaLabel: 'Request Contract Management Review',
+  }
+];
+
+export const SERVICES = [...CORE_SERVICES, ...SUPPORT_SERVICES];
 
 export const USPs = [
   {

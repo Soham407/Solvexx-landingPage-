@@ -1,77 +1,70 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowRight, CheckCircle2, X } from 'lucide-react';
+import { ArrowRight, CheckCircle2, FileText, ShieldCheck, UserCog, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SERVICES, USPs } from '../constants';
+import { TEAM_MEMBERS, getInitials } from '../team';
+import { useUiMotion } from '../hooks/useUiMotion';
+import {
+  CERTIFICATION,
+  CIN_NUMBER,
+  CONTACT_RESPONSE_COMMITMENT,
+  GST_NUMBER,
+  LEGAL_NAME,
+  SITE_MISSION,
+  SITE_TAGLINE,
+} from '../site';
 
-import SecurityGuardImg from '../assets/ServiceImages/Security_Guard.png';
-import ACMaintImg from '../assets/ServiceImages/AC Maint.png';
 import HousekeepingImg from '../assets/ServiceImages/Housekeeping.png';
-
-const TEAM_MEMBERS = [
-  {
-    name: 'Vandanaa Mahadeo Chougulay',
-    title: 'Director, Marketing & Strategic Alliances',
-    image: null,
-    imagePosition: 'object-center',
-    bio: 'With 30 years of diverse professional experience, Vandanaa brings a dynamic blend of business acumen, innovation, and leadership to Solvesxx. She holds a Master’s degree and has built a multifaceted career spanning manufacturing, international business, and strategic marketing. At Solvesxx, she drives marketing strategy and project alliances, building strong business relationships and aligning growth opportunities with market demand. She also leads her own sports brand, LGM Sports, a skating manufacturing and international trading business focused on custom skate design and innovation. Her earlier experience in the food industry further strengthens her operational and business management perspective across sectors. Known for her hard work, innovation-driven thinking, and strategic collaboration, she continues to add significant value to the company’s growth vision.',
-  },
-  {
-    name: 'Nafis Shaikh',
-    title: 'Director, Project Management & Execution Specialist',
-    image: '/team/nafis-shaikh.png',
-    imagePosition: 'object-top',
-    bio: 'With more than 20 years of industry experience, Nafis Shaikh brings a strong blend of design insight and execution expertise to Solvesxx. A graduate in Interior Design, she has built her career around precision, coordination, and delivering projects that meet both functional and aesthetic expectations. She has served as a Senior Designer and Project Coordinator, where she played a central role in turning concepts into well-executed outcomes. Her core strength is execution excellence: managing timelines, coordinating stakeholders, and ensuring every phase of delivery is handled with discipline and clarity. Driven by a deep passion for project management, she believes successful projects are built on planning, coordination, and flawless execution.',
-  },
-  {
-    name: 'Sharada Vitthal Dhumal',
-    title: 'Director, Administrative Management & Operations',
-    image: null,
-    imagePosition: 'object-center',
-    bio: 'With over 25 years of professional experience, Sharada brings deep expertise in administrative management, financial discipline, and organizational efficiency to Solvesxx. She holds an M.Com with specialization in Business Entrepreneurship, giving her a strong foundation in both business strategy and operations. She oversees administrative systems and project organization, ensuring operations run with structure, accountability, and precision. Her career spans CA firms, legal firms, advertising, printing, media, and the gems and jewellery sector, including 15 years in accounts and 10 years in administration with organizations such as Times of India and P. N. Gadgil & Sons Ltd. Her cross-industry exposure has made her highly adaptable and detail-oriented, with strong capability in managing complex workflows and ensuring seamless coordination across departments.',
-  },
-  {
-    name: 'Adv. Kamal Dashrath Sawant',
-    title: 'Director, Legal Advisory & Governance',
-    image: '/team/kamal-sawant.jpeg',
-    imagePosition: 'object-center',
-    bio: 'Advocate Kamal brings a rare combination of legal expertise, leadership experience, and sporting excellence to Solvesxx. She holds BA and LLB degrees and has built a distinguished career rooted in governance, public service, and legal advisory. At Solvesxx, she guides the organization on legal frameworks, compliance, and strategic decision-making, helping ensure operations align with regulatory standards and ethical practices. Her professional journey is complemented by an inspiring sports background as a former national-level cricket player who played as an opening bowler. She has also held major leadership positions, including member of the Apex Council of the Maharashtra Cricket Association and Chairperson of Zilla Parishad, Ahilyanagar. Her experience across law, sports, and governance adds a distinctive strength to the company’s leadership foundation.',
-  },
-  {
-    name: 'Adv. Ashwini Jagtap',
-    title: 'Director, Legal Advisory - Civil & Family Law',
-    image: null,
-    imagePosition: 'object-center',
-    bio: 'Advocate Ashwini brings strong legal expertise and practical understanding of civil and family law to the leadership team at Solvesxx. She holds B.Com and LLB degrees, combining a foundation in commerce with professional legal proficiency. She actively practices at Shivajinagar Court, handling matters related to civil and family law with structured guidance, and client-focused mindset, she plays an important role in safeguarding the company’s interests while enabling informed and compliant decision-making.',
-  },
-] as const;
-
-const getInitials = (name: string) =>
-  name
-    .replace('Adv.', '')
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase() ?? '')
-    .join('');
+import PestControlImg from '../assets/ServiceImages/Pest Control.png';
+import SecurityGuardImg from '../assets/ServiceImages/Security_Guard.jpg';
+import ACMaintImg from '../assets/ServiceImages/AC Maint.jpg';
 
 const Home = () => {
+  const shouldReduceMotion = useUiMotion();
   const [selectedMember, setSelectedMember] = useState<(typeof TEAM_MEMBERS)[number] | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!selectedMember) {
       document.body.style.overflow = '';
+      previousFocusRef.current?.focus();
       return;
     }
+
+    previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setSelectedMember(null);
       }
+
+      if (event.key === 'Tab' && dialogRef.current) {
+        const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>(
+          'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (!firstElement || !lastElement) {
+          return;
+        }
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
+        }
+      }
     };
 
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleEscape);
+    closeButtonRef.current?.focus();
 
     return () => {
       document.body.style.overflow = '';
@@ -87,10 +80,9 @@ const Home = () => {
         <div className="absolute inset-0 z-0 flex flex-col lg:flex-row">
           <div className="w-full lg:w-1/2 h-full relative">
             <img 
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" 
-              alt="Modern Office" 
+              src={SecurityGuardImg}
+              alt="Security team deployed at client site"
               className="w-full h-full object-cover opacity-40"
-              referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
           </div>
@@ -98,16 +90,16 @@ const Home = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rotate-45">
               <div className="grid grid-cols-2 grid-rows-2 gap-4 w-full h-full p-4">
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
-                  <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=800" alt="Cleaning" className="w-full h-full object-cover object-top -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
+                  <img src={HousekeepingImg} alt="Housekeeping support" className="w-full h-full object-cover object-top -rotate-45 scale-[1.4]" />
                 </div>
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
-                  <img src={SecurityGuardImg} alt="Security" className="w-full h-full object-cover object-top -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
+                  <img src={SecurityGuardImg} alt="Security deployment" className="w-full h-full object-cover object-top -rotate-45 scale-[1.4]" />
                 </div>
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
-                  <img src={ACMaintImg} alt="AC Service" className="w-full h-full object-cover object-top -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
+                  <img src={ACMaintImg} alt="AC service" className="w-full h-full object-cover object-top -rotate-45 scale-[1.4]" />
                 </div>
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
-                  <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800" alt="Landscaping" className="w-full h-full object-cover -rotate-45 scale-[1.4]" referrerPolicy="no-referrer" />
+                  <img src={PestControlImg} alt="Pest control services" className="w-full h-full object-cover -rotate-45 scale-[1.4]" />
                 </div>
               </div>
             </div>
@@ -118,12 +110,12 @@ const Home = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, x: -50 }}
+            animate={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.8 }}
             className="w-full lg:w-1/2 lg:pr-12 py-12"
           >
-            <span className="text-accent tracking-widest uppercase text-sm mb-4 block">Powerfull Solutions Pvt. Ltd.</span>
+            <span className="text-accent tracking-widest uppercase text-sm mb-4 block">{LEGAL_NAME}</span>
             <h1 className="text-4xl md:text-6xl font-display font-medium text-white mb-6 leading-tight">
               Complete Facility & <br />
               <span className="text-accent">Infrastructure Solutions</span>
@@ -133,8 +125,8 @@ const Home = () => {
               Delivered with Precision.
             </p>
             <p className="text-sm text-gray-300 mb-10 italic">
-              Security. Maintenance. Hygiene. Infrastructure. <br />
-              One trusted partner for total facility excellence.
+              {SITE_TAGLINE} <br />
+              Security. Maintenance. Hygiene. Infrastructure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
@@ -147,10 +139,36 @@ const Home = () => {
                 to="/contact" 
                 className="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-md font-medium text-lg flex items-center justify-center hover:bg-white/20 transition-all"
               >
-                Request Site Audit
+                Request Site Assessment
               </Link>
             </div>
+            <p className="mt-6 text-sm text-gray-300">{CONTACT_RESPONSE_COMMITMENT}</p>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-4 text-center md:text-left">
+          <div>
+            <div className="text-xs uppercase tracking-[0.24em] text-accent mb-1">Certification</div>
+            <div className="text-primary font-medium">{CERTIFICATION}</div>
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-[0.24em] text-accent mb-1">GST</div>
+            <div className="text-primary font-medium">{GST_NUMBER}</div>
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-[0.24em] text-accent mb-1">CIN</div>
+            <div className="text-primary font-medium">{CIN_NUMBER}</div>
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-[0.24em] text-accent mb-1">Base</div>
+            <div className="text-primary font-medium">Pune-Based Operations</div>
+          </div>
+          <div>
+            <div className="text-xs uppercase tracking-[0.24em] text-accent mb-1">Sectors</div>
+            <div className="text-primary font-medium">IT, Corporate, Residential, Institutional, Manufacturing</div>
+          </div>
         </div>
       </section>
 
@@ -158,16 +176,17 @@ const Home = () => {
       <section className="bg-secondary py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Why Solvexx</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Why Solvesxx</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto"></div>
+            <p className="text-gray-600 max-w-3xl mx-auto mt-6">{SITE_MISSION}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {USPs.map((usp, index) => (
               <motion.div
                 key={usp.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="group relative flex items-start gap-4 p-6 rounded-xl transition-all overflow-hidden hover:text-white"
               >
@@ -194,7 +213,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Our Core Services</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We provide professionally managed facility services delivering integrated solutions across multiple domains.
+              We provide professionally managed facility services across security, hygiene, maintenance, pest management, plantation, and supply support.
             </p>
           </div>
 
@@ -202,9 +221,9 @@ const Home = () => {
             {SERVICES.map((service, index) => (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
+                initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.95 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="group bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
               >
@@ -214,7 +233,8 @@ const Home = () => {
                     alt={service.title}
                     className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                     referrerPolicy="no-referrer"
-                  />                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur p-2 rounded-lg text-accent">
+                  />
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur p-2 rounded-lg text-accent">
                     <service.icon size={24} />
                   </div>
                 </div>
@@ -234,49 +254,34 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About Preview */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/2">
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800" 
-                  alt="Women Leadership" 
-                  className="rounded-2xl shadow-2xl relative z-10"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute -bottom-6 -right-6 w-64 h-64 bg-accent/20 rounded-full blur-3xl z-0"></div>
-                <div className="absolute -top-6 -left-6 w-32 h-32 border-4 border-accent rounded-2xl z-0"></div>
-              </div>
-            </div>
-            <div className="lg:w-1/2">
-              <span className="text-accent tracking-widest uppercase text-sm mb-4 block">About Solvesxx</span>
-              <h2 className="text-3xl md:text-4xl font-medium text-primary mb-6">Women-Led Leadership with a Legal Backbone</h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                We are a professionally managed facility services company delivering integrated solutions. Founded, managed, and operated by five dynamic women entrepreneurs who bring diverse expertise under one unified vision.
-              </p>
-              <div className="space-y-4 mb-10">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="text-accent" />
-                  <span className="font-medium text-primary">Statutory Compliance & Contract Transparency</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="text-accent" />
-                  <span className="font-medium text-primary">Structured Administrative Control</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="text-accent" />
-                  <span className="font-medium text-primary">Industrial Process Discipline</span>
+          <div className="text-center mb-14">
+            <p className="text-sm uppercase tracking-[0.28em] text-accent mb-4">Security | Maintenance | Hygiene | Infrastructure</p>
+            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Extended Service Scope</h2>
+            <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Beyond core facility operations, Solvesxx also supports consumables, beverages, disposables, gifting, legal process support, and technology-led site requirements.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              'AI-enabled surveillance and door monitoring',
+              'Deep cleaning and hygiene support',
+              'Waste management support',
+              'Cleaning chemicals and fragrances',
+              'Premium hot beverages and natural-flavour cold beverages',
+              'Eco-friendly paper cups and disposables',
+              'Corporate gifting designed to reflect your brand',
+              'Import, export, and supply coordination',
+            ].map((item) => (
+              <div key={item} className="rounded-2xl border border-gray-100 bg-gray-50 p-6 text-primary shadow-sm">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="text-accent shrink-0 mt-0.5" size={18} />
+                  <span className="leading-relaxed">{item}</span>
                 </div>
               </div>
-              <Link 
-                to="/about" 
-                className="inline-block bg-primary text-white px-8 py-3 rounded-md font-medium hover:bg-opacity-90 transition-all"
-              >
-                Our Story
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -298,9 +303,9 @@ const Home = () => {
               <motion.button
                 key={member.name}
                 type="button"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.08 }}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.08 }}
                 viewport={{ once: true }}
                 onClick={() => setSelectedMember(member)}
                 className="group relative text-left bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent/40"
@@ -313,6 +318,8 @@ const Home = () => {
                         src={member.image}
                         alt={member.name}
                         className={`h-full w-full object-cover ${member.imagePosition} transition-transform duration-500 group-hover:scale-105`}
+                        loading="lazy"
+                        decoding="async"
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center bg-primary text-5xl font-display font-medium text-white">
@@ -361,9 +368,9 @@ const Home = () => {
             ].map((item, index) => (
               <motion.div 
                 key={item.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="group relative z-10 bg-white p-8 rounded-2xl border border-gray-100 shadow-sm text-center overflow-hidden hover:text-white transition-all duration-500"
               >
@@ -381,35 +388,45 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Delivery Readiness */}
       <section className="py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">What Our Clients Say</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">What We Put In Place Before Deployment</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              The site does not rely on generic promises. Every engagement starts with documented scope, supervision clarity, and operating discipline.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Corporate Client", role: "Facility Manager", text: "Solvesxx has transformed our office maintenance. Their attention to hygiene and discipline is unmatched." },
-              { name: "Industrial Partner", role: "Operations Head", text: "The legal compliance and structured control they bring to security services give us complete peace of mind." },
-              { name: "Residential Society", role: "Secretary", text: "Professional, reliable, and always on time. Their landscaping and housekeeping teams are top-notch." }
-            ].map((t, i) => (
+              {
+                title: 'Defined Scope & Reporting',
+                text: 'Before mobilisation, the service scope, escalation points, reporting flow, and visit rhythm are aligned with the client team.',
+                icon: FileText,
+              },
+              {
+                title: 'Supervisor-Led Execution',
+                text: 'Deployment is not left unmanaged. Site delivery is supported by supervision, review, and operating accountability.',
+                icon: UserCog,
+              },
+              {
+                title: 'Compliance-Aware Onboarding',
+                text: 'Legal review, manpower fit, and working requirements are examined early so execution starts with fewer surprises.',
+                icon: ShieldCheck,
+              },
+            ].map((item, i) => (
               <motion.div 
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={item.title}
+                initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.9 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"
               >
-                <div className="flex text-accent mb-4">
-                  {"★★★★★".split("").map((s, j) => <span key={j}>{s}</span>)}
-                </div>
-                <p className="text-gray-600 italic mb-6">"{t.text}"</p>
-                <div>
-                  <div className="font-medium text-primary">{t.name}</div>
-                  <div className="text-sm text-accent">{t.role}</div>
-                </div>
+                <item.icon className="text-accent mb-5" size={28} />
+                <h3 className="text-xl font-medium text-primary mb-3">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.text}</p>
               </motion.div>
             ))}
           </div>
@@ -419,9 +436,9 @@ const Home = () => {
       {/* CTA Section */}
       <section className="py-20 blue-gradient text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-medium mb-6">Ready to elevate your facility management?</h2>
+          <h2 className="text-3xl md:text-4xl font-medium mb-6">Ready to review your facility requirement properly?</h2>
           <p className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
-            Your facility deserves management that is disciplined, ethical, and efficient. Contact us for a custom solution.
+            Let us work for you. Share your scope, operating location, and service need, and we will review the requirement and propose a practical next step.
           </p>
           <Link 
             to="/contact" 
@@ -435,20 +452,23 @@ const Home = () => {
     <AnimatePresence>
       {selectedMember ? (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={shouldReduceMotion ? false : { opacity: 0 }}
+          animate={shouldReduceMotion ? undefined : { opacity: 1 }}
+          exit={shouldReduceMotion ? undefined : { opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-center bg-primary/75 backdrop-blur-md px-4 py-6 md:py-8"
           onClick={() => setSelectedMember(null)}
         >
           <motion.div
-            initial={{ opacity: 0, y: 24, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 24, scale: 0.96 }}
-            transition={{ duration: 0.2 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 24, scale: 0.96 }}
+            animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+            exit={shouldReduceMotion ? undefined : { opacity: 0, y: 24, scale: 0.96 }}
+            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
             role="dialog"
             aria-modal="true"
             aria-labelledby="team-member-modal-title"
+            aria-describedby="team-member-modal-description"
+            tabIndex={-1}
+            ref={dialogRef}
             className="relative w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/40 bg-white shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
@@ -456,6 +476,7 @@ const Home = () => {
             <button
               type="button"
               onClick={() => setSelectedMember(null)}
+              ref={closeButtonRef}
               className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-primary/10 bg-white/90 text-primary shadow-md transition-all hover:scale-105 hover:bg-accent hover:text-white"
               aria-label="Close team member bio"
             >
@@ -480,6 +501,8 @@ const Home = () => {
                           src={selectedMember.image}
                           alt={selectedMember.name}
                           className={`h-full w-full object-cover ${selectedMember.imagePosition}`}
+                          loading="lazy"
+                          decoding="async"
                         />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center bg-primary text-7xl font-display font-medium text-white">
@@ -522,7 +545,10 @@ const Home = () => {
 
                   <div className="rounded-[1.75rem] border border-gray-100 bg-white/90 p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,51,102,0.08)]">
                     <p className="mb-4 text-xs font-medium uppercase tracking-[0.28em] text-primary/50">About</p>
-                    <p className="text-base sm:text-lg leading-8 text-gray-600 whitespace-pre-line">
+                    <p
+                      id="team-member-modal-description"
+                      className="text-base sm:text-lg leading-8 text-gray-600 whitespace-pre-line"
+                    >
                       {selectedMember.bio}
                     </p>
                   </div>

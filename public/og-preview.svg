@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Solvesxx Facility &amp; Infrastructure Solutions</title>
+  <desc id="desc">Open Graph preview for Solvesxx website</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#052D56" />
+      <stop offset="100%" stop-color="#0B4B82" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#F1D592" />
+      <stop offset="100%" stop-color="#D4AF37" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1010" cy="120" r="180" fill="#ffffff" fill-opacity="0.06" />
+  <circle cx="180" cy="560" r="220" fill="#ffffff" fill-opacity="0.04" />
+  <rect x="80" y="96" width="140" height="140" rx="28" fill="#ffffff" fill-opacity="0.12" />
+  <rect x="112" y="128" width="76" height="76" rx="18" fill="url(#gold)" />
+  <text x="280" y="185" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="68" font-weight="700">SOLVES<tspan fill="#D4AF37">XX</tspan></text>
+  <text x="80" y="320" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="600">Facility &amp; Infrastructure</text>
+  <text x="80" y="390" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="600">Solutions in Pune</text>
+  <text x="80" y="474" fill="#E5E7EB" font-family="Inter, Arial, sans-serif" font-size="28">Security, housekeeping, AC maintenance, pest control, landscaping, and supply.</text>
+  <text x="80" y="532" fill="#D4AF37" font-family="Inter, Arial, sans-serif" font-size="24" letter-spacing="3">MANAGED WITH INTEGRITY. DELIVERED WITH PRECISION.</text>
+</svg>

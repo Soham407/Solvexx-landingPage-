@@ -3,9 +3,12 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { CheckCircle2, ArrowLeft, PhoneCall } from 'lucide-react';
 import { SERVICES } from '../constants';
+import { CONTACT_EMAIL } from '../site';
+import { useUiMotion } from '../hooks/useUiMotion';
 
 const IndividualService = () => {
   const { id } = useParams();
+  const shouldReduceMotion = useUiMotion();
   const service = SERVICES.find(s => s.id === id);
 
   if (!service) {
@@ -30,8 +33,8 @@ const IndividualService = () => {
             <ArrowLeft size={20} /> Back to Services
           </Link>
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-medium mb-6"
           >
             {service.title}
@@ -121,13 +124,13 @@ const IndividualService = () => {
                 <div className="bg-primary text-white p-8 rounded-2xl shadow-xl">
                   <h3 className="text-2xl font-medium mb-6">Need this service?</h3>
                   <p className="text-gray-300 mb-8">
-                    Contact us today for a personalized quote and site audit.
+                    Contact us today for a practical review of your requirement and site conditions.
                   </p>
                   <Link 
                     to="/contact" 
                     className="block w-full bg-accent text-white text-center py-4 rounded-lg font-medium gold-gradient hover:scale-105 transition-transform"
                   >
-                    Request a Quote
+                    {service.ctaLabel}
                   </Link>
                   <div className="mt-8 pt-8 border-t border-white/10 flex items-center gap-4">
                     <div className="bg-white/10 p-3 rounded-full">
@@ -135,7 +138,7 @@ const IndividualService = () => {
                     </div>
                     <div>
                       <div className="text-sm text-gray-400">Email us at</div>
-                      <div className="font-medium text-white">admin@solvesxx.com</div>
+                      <div className="font-medium text-white">{CONTACT_EMAIL}</div>
                     </div>
                   </div>
                 </div>
@@ -143,7 +146,7 @@ const IndividualService = () => {
                 <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
                   <h4 className="font-medium text-primary mb-4">Other Services</h4>
                   <div className="space-y-4">
-                    {SERVICES.filter(s => s.id !== id).slice(0, 3).map(s => (
+                    {SERVICES.filter(s => s.id !== id).slice(0, 4).map(s => (
                       <Link 
                         key={s.id} 
                         to={`/services/${s.id}`}
