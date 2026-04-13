@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { ArrowRight, CheckCircle2, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SERVICES, USPs } from '../constants';
 
@@ -8,8 +8,79 @@ import SecurityGuardImg from '../assets/ServiceImages/Security_Guard.png';
 import ACMaintImg from '../assets/ServiceImages/AC Maint.png';
 import HousekeepingImg from '../assets/ServiceImages/Housekeeping.png';
 
+const TEAM_MEMBERS = [
+  {
+    name: 'Vandanaa Mahadeo Chougulay',
+    title: 'Director, Marketing & Strategic Alliances',
+    image: null,
+    imagePosition: 'object-center',
+    bio: 'With 30 years of diverse professional experience, Vandanaa brings a dynamic blend of business acumen, innovation, and leadership to Solvesxx. She holds a Master’s degree and has built a multifaceted career spanning manufacturing, international business, and strategic marketing. At Solvesxx, she drives marketing strategy and project alliances, building strong business relationships and aligning growth opportunities with market demand. She also leads her own sports brand, LGM Sports, a skating manufacturing and international trading business focused on custom skate design and innovation. Her earlier experience in the food industry further strengthens her operational and business management perspective across sectors. Known for her hard work, innovation-driven thinking, and strategic collaboration, she continues to add significant value to the company’s growth vision.',
+  },
+  {
+    name: 'Nafis Shaikh',
+    title: 'Director, Project Management & Execution Specialist',
+    image: '/team/nafis-shaikh.png',
+    imagePosition: 'object-top',
+    bio: 'With more than 20 years of industry experience, Nafis Shaikh brings a strong blend of design insight and execution expertise to Solvesxx. A graduate in Interior Design, she has built her career around precision, coordination, and delivering projects that meet both functional and aesthetic expectations. She has served as a Senior Designer and Project Coordinator, where she played a central role in turning concepts into well-executed outcomes. Her core strength is execution excellence: managing timelines, coordinating stakeholders, and ensuring every phase of delivery is handled with discipline and clarity. Driven by a deep passion for project management, she believes successful projects are built on planning, coordination, and flawless execution.',
+  },
+  {
+    name: 'Sharada Vitthal Dhumal',
+    title: 'Director, Administrative Management & Operations',
+    image: null,
+    imagePosition: 'object-center',
+    bio: 'With over 25 years of professional experience, Sharada brings deep expertise in administrative management, financial discipline, and organizational efficiency to Solvesxx. She holds an M.Com with specialization in Business Entrepreneurship, giving her a strong foundation in both business strategy and operations. She oversees administrative systems and project organization, ensuring operations run with structure, accountability, and precision. Her career spans CA firms, legal firms, advertising, printing, media, and the gems and jewellery sector, including 15 years in accounts and 10 years in administration with organizations such as Times of India and P. N. Gadgil & Sons Ltd. Her cross-industry exposure has made her highly adaptable and detail-oriented, with strong capability in managing complex workflows and ensuring seamless coordination across departments.',
+  },
+  {
+    name: 'Adv. Kamal Dashrath Sawant',
+    title: 'Director, Legal Advisory & Governance',
+    image: '/team/kamal-sawant.jpeg',
+    imagePosition: 'object-center',
+    bio: 'Advocate Kamal brings a rare combination of legal expertise, leadership experience, and sporting excellence to Solvesxx. She holds BA and LLB degrees and has built a distinguished career rooted in governance, public service, and legal advisory. At Solvesxx, she guides the organization on legal frameworks, compliance, and strategic decision-making, helping ensure operations align with regulatory standards and ethical practices. Her professional journey is complemented by an inspiring sports background as a former national-level cricket player who played as an opening bowler. She has also held major leadership positions, including member of the Apex Council of the Maharashtra Cricket Association and Chairperson of Zilla Parishad, Ahilyanagar. Her experience across law, sports, and governance adds a distinctive strength to the company’s leadership foundation.',
+  },
+  {
+    name: 'Adv. Ashwini Jagtap',
+    title: 'Director, Legal Advisory - Civil & Family Law',
+    image: null,
+    imagePosition: 'object-center',
+    bio: 'Advocate Ashwini brings strong legal expertise and practical understanding of civil and family law to the leadership team at Solvesxx. She holds B.Com and LLB degrees, combining a foundation in commerce with professional legal proficiency. She actively practices at Shivajinagar Court, handling matters related to civil and family law with structured guidance, and client-focused mindset, she plays an important role in safeguarding the company’s interests while enabling informed and compliant decision-making.',
+  },
+] as const;
+
+const getInitials = (name: string) =>
+  name
+    .replace('Adv.', '')
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('');
+
 const Home = () => {
+  const [selectedMember, setSelectedMember] = useState<(typeof TEAM_MEMBERS)[number] | null>(null);
+
+  useEffect(() => {
+    if (!selectedMember) {
+      document.body.style.overflow = '';
+      return;
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedMember(null);
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [selectedMember]);
+
   return (
+    <>
     <div className="overflow-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-primary">
@@ -210,6 +281,63 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-accent tracking-widest uppercase text-sm mb-4 block">Meet The Team</span>
+            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">The Leadership Behind Solvesxx</h2>
+            <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Five leaders with complementary strengths across strategy, execution, administration, and legal governance.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-6 xl:gap-5">
+            {TEAM_MEMBERS.map((member, index) => (
+              <motion.button
+                key={member.name}
+                type="button"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.08 }}
+                viewport={{ once: true }}
+                onClick={() => setSelectedMember(member)}
+                className="group relative text-left bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent/40"
+              >
+                <div className="card-reveal-bg !clip-path-[circle(0%_at_50%_100%)] group-hover:!clip-path-[circle(160%_at_50%_100%)]"></div>
+                <div className="card-content">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className={`h-full w-full object-cover ${member.imagePosition} transition-transform duration-500 group-hover:scale-105`}
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-primary text-5xl font-display font-medium text-white">
+                        {getInitials(member.name)}
+                      </div>
+                    )}
+                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-primary/30 to-transparent"></div>
+                  </div>
+
+                  <div className="p-6">
+                    <h3 className="text-lg text-primary mb-2 leading-snug transition-colors duration-500">{member.name}</h3>
+                    <p className="text-sm text-gray-600 min-h-[3.75rem] leading-relaxed transition-colors duration-500">
+                      {member.title}
+                    </p>
+                    <span className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-accent group-hover:text-white transition-colors duration-500">
+                      View Bio <ArrowRight size={16} />
+                    </span>
+                  </div>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -304,6 +432,67 @@ const Home = () => {
         </div>
       </section>
     </div>
+    <AnimatePresence>
+      {selectedMember ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-primary/75 backdrop-blur-sm px-4 py-8"
+          onClick={() => setSelectedMember(null)}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 24, scale: 0.96 }}
+            transition={{ duration: 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="team-member-modal-title"
+            className="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedMember(null)}
+              className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-primary shadow-md transition-colors hover:bg-accent hover:text-white"
+              aria-label="Close team member bio"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="grid grid-cols-1 md:grid-cols-[320px_1fr]">
+              <div className="relative bg-primary">
+                <div className="aspect-[3/4] md:h-full md:min-h-[520px] overflow-hidden">
+                  {selectedMember.image ? (
+                    <img
+                      src={selectedMember.image}
+                      alt={selectedMember.name}
+                      className={`h-full w-full object-cover ${selectedMember.imagePosition}`}
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-primary text-7xl font-display font-medium text-white">
+                      {getInitials(selectedMember.name)}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="max-h-[85vh] overflow-y-auto p-8 md:p-10">
+                <span className="text-accent tracking-widest uppercase text-xs mb-3 block">Leadership Profile</span>
+                <h3 id="team-member-modal-title" className="text-3xl font-medium text-primary mb-3">
+                  {selectedMember.name}
+                </h3>
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">{selectedMember.title}</p>
+                <div className="w-16 h-1 bg-accent mb-8"></div>
+                <p className="text-gray-600 leading-8 whitespace-pre-line">{selectedMember.bio}</p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      ) : null}
+    </AnimatePresence>
+    </>
   );
 };
 
