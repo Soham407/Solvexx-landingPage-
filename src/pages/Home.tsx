@@ -438,7 +438,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-primary/75 backdrop-blur-sm px-4 py-8"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-primary/75 backdrop-blur-md px-4 py-6 md:py-8"
           onClick={() => setSelectedMember(null)}
         >
           <motion.div
@@ -449,43 +449,84 @@ const Home = () => {
             role="dialog"
             aria-modal="true"
             aria-labelledby="team-member-modal-title"
-            className="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl"
+            className="relative w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/40 bg-white shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,175,55,0.18),_transparent_32%),radial-gradient(circle_at_bottom_left,_rgba(0,51,102,0.08),_transparent_35%)]"></div>
             <button
               type="button"
               onClick={() => setSelectedMember(null)}
-              className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-primary shadow-md transition-colors hover:bg-accent hover:text-white"
+              className="absolute right-4 top-4 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-primary/10 bg-white/90 text-primary shadow-md transition-all hover:scale-105 hover:bg-accent hover:text-white"
               aria-label="Close team member bio"
             >
               <X size={20} />
             </button>
 
-            <div className="grid grid-cols-1 md:grid-cols-[320px_1fr]">
-              <div className="relative bg-primary">
-                <div className="aspect-[3/4] md:h-full md:min-h-[520px] overflow-hidden">
-                  {selectedMember.image ? (
-                    <img
-                      src={selectedMember.image}
-                      alt={selectedMember.name}
-                      className={`h-full w-full object-cover ${selectedMember.imagePosition}`}
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-primary text-7xl font-display font-medium text-white">
-                      {getInitials(selectedMember.name)}
+            <div className="relative grid grid-cols-1 lg:grid-cols-[360px_1fr]">
+              <div className="relative overflow-hidden bg-primary px-6 py-8 sm:px-8 lg:min-h-[620px]">
+                <div className="absolute inset-0 bg-pattern opacity-20"></div>
+                <div className="absolute inset-x-8 top-8 h-px bg-white/20"></div>
+                <div className="absolute inset-x-8 bottom-8 h-px bg-white/10"></div>
+
+                <div className="relative z-10 flex h-full flex-col">
+                  <span className="mb-6 inline-flex w-fit items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.28em] text-white/80">
+                    Solvesxx Leadership
+                  </span>
+
+                  <div className="overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/10 shadow-2xl">
+                    <div className="aspect-[4/5] overflow-hidden bg-primary/80">
+                      {selectedMember.image ? (
+                        <img
+                          src={selectedMember.image}
+                          alt={selectedMember.name}
+                          className={`h-full w-full object-cover ${selectedMember.imagePosition}`}
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center bg-primary text-7xl font-display font-medium text-white">
+                          {getInitials(selectedMember.name)}
+                        </div>
+                      )}
                     </div>
-                  )}
+                    <div className="border-t border-white/10 bg-white/10 px-6 py-5">
+                      <p className="text-sm font-medium uppercase tracking-[0.24em] text-accent">Team Profile</p>
+                      <p className="mt-2 text-sm leading-relaxed text-white/75">
+                        Strategic leadership across operations, governance, delivery, and growth.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 flex items-center gap-3 text-white/70">
+                    <div className="h-px flex-1 bg-white/15"></div>
+                    <span className="text-xs uppercase tracking-[0.28em]">Profile</span>
+                    <div className="h-px flex-1 bg-white/15"></div>
+                  </div>
                 </div>
               </div>
 
-              <div className="max-h-[85vh] overflow-y-auto p-8 md:p-10">
-                <span className="text-accent tracking-widest uppercase text-xs mb-3 block">Leadership Profile</span>
-                <h3 id="team-member-modal-title" className="text-3xl font-medium text-primary mb-3">
-                  {selectedMember.name}
-                </h3>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">{selectedMember.title}</p>
-                <div className="w-16 h-1 bg-accent mb-8"></div>
-                <p className="text-gray-600 leading-8 whitespace-pre-line">{selectedMember.bio}</p>
+              <div className="relative max-h-[85vh] overflow-y-auto px-6 py-8 sm:px-8 md:px-10 lg:px-12">
+                <div className="relative z-10">
+                  <span className="mb-4 inline-flex rounded-full bg-secondary px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-accent">
+                    Leadership Profile
+                  </span>
+                  <h3 id="team-member-modal-title" className="max-w-2xl text-3xl md:text-4xl font-medium text-primary leading-tight">
+                    {selectedMember.name}
+                  </h3>
+                  <p className="mt-4 max-w-2xl text-lg md:text-xl leading-relaxed text-gray-600">
+                    {selectedMember.title}
+                  </p>
+
+                  <div className="my-8 flex items-center gap-4">
+                    <div className="h-1 w-16 bg-accent"></div>
+                    <div className="h-px flex-1 bg-gray-200"></div>
+                  </div>
+
+                  <div className="rounded-[1.75rem] border border-gray-100 bg-white/90 p-6 sm:p-8 shadow-[0_24px_60px_rgba(0,51,102,0.08)]">
+                    <p className="mb-4 text-xs font-medium uppercase tracking-[0.28em] text-primary/50">About</p>
+                    <p className="text-base sm:text-lg leading-8 text-gray-600 whitespace-pre-line">
+                      {selectedMember.bio}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
