@@ -308,29 +308,36 @@ const Home = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-6 xl:gap-5">
             {TEAM_MEMBERS.map((member, index) => (
-              <motion.button
+              <motion.div
                 key={member.name}
-                type="button"
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
                 whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.08 }}
                 viewport={{ once: true }}
+                role="button"
+                tabIndex={0}
                 onClick={() => setSelectedMember(member)}
-                className="group relative text-left bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent/40"
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setSelectedMember(member);
+                  }
+                }}
+                className="group relative block bg-white text-left rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent/40"
               >
                 <div className="card-reveal-bg !clip-path-[circle(0%_at_50%_100%)] group-hover:!clip-path-[circle(160%_at_50%_100%)]"></div>
                 <div className="card-content">
-                  <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-secondary leading-none">
                     {member.image ? (
                       <img
                         src={member.image}
                         alt={member.name}
-                        className={`h-full w-full object-cover ${member.imagePosition} transition-transform duration-500 group-hover:scale-105`}
+                        className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                         decoding="async"
                       />
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-primary text-5xl font-display font-medium text-white">
+                      <div className="absolute inset-0 flex items-center justify-center bg-primary text-5xl font-display font-medium text-white">
                         {getInitials(member.name)}
                       </div>
                     )}
@@ -347,7 +354,7 @@ const Home = () => {
                     </span>
                   </div>
                 </div>
-              </motion.button>
+              </motion.div>
             ))}
           </div>
         </div>
