@@ -16,6 +16,7 @@ import {
   SITE_TAGLINE,
   WEBSITE_HOST,
 } from '../site';
+import { CORE_SERVICES } from '../constants';
 
 const Footer = () => {
   return (
@@ -63,21 +64,21 @@ const Footer = () => {
                 >
                   <Phone size={16} />
                   Call Us
-              </a>
-            ) : null}
-            {!CONTACT_PHONE
-              ? CONTACT_PHONES.map((phone) => (
-                  <a
-                    key={phone}
-                    href={`tel:${phone}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white font-medium transition-colors hover:border-accent hover:text-white"
-                  >
-                    <Phone size={16} />
-                    {phone}
-                  </a>
-                ))
-              : null}
-          </div>
+                </a>
+              ) : null}
+              {!CONTACT_PHONE
+                ? CONTACT_PHONES.map((phone) => (
+                    <a
+                      key={phone}
+                      href={`tel:${phone}`}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white font-medium transition-colors hover:border-accent hover:text-white"
+                    >
+                      <Phone size={16} />
+                      {phone}
+                    </a>
+                  ))
+                : null}
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -95,10 +96,16 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-medium mb-6 border-b border-accent/30 pb-2 inline-block">Services</h4>
             <ul className="space-y-4">
-              <li><Link to="/services/security" className="text-white font-medium hover:text-accent transition-colors">Security Services</Link></li>
-              <li><Link to="/services/housekeeping" className="text-white font-medium hover:text-accent transition-colors">Housekeeping</Link></li>
-              <li><Link to="/services/ac-services" className="text-white font-medium hover:text-accent transition-colors">AC Services</Link></li>
-              <li><Link to="/services/pest-control" className="text-white font-medium hover:text-accent transition-colors">Pest Control</Link></li>
+              {CORE_SERVICES.slice(0, 6).map((service) => (
+                <li key={service.id}>
+                  <Link
+                    to={`/services/${service.id}`}
+                    className="text-white font-medium hover:text-accent transition-colors"
+                  >
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

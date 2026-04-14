@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ArrowRight, CheckCircle2, FileText, ShieldCheck, UserCog, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { SERVICES, USPs } from '../constants';
+import { CORE_SERVICES, USPs } from '../constants';
 import { TEAM_MEMBERS, getInitials } from '../team';
 import { useUiMotion } from '../hooks/useUiMotion';
 import {
@@ -218,7 +218,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service, index) => (
+            {CORE_SERVICES.map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.95 }}
@@ -282,6 +282,14 @@ const Home = () => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-8 py-4 text-lg font-medium text-white transition-transform hover:scale-105"
+            >
+              View All Services <ArrowRight size={20} />
+            </Link>
           </div>
         </div>
       </section>

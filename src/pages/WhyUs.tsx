@@ -9,8 +9,8 @@ const WhyUs = () => {
   const shouldReduceMotion = useUiMotion();
   const differentiators = [
     {
-      title: "Women Led Leadership with Legal Backbone",
-      desc: "Founded, managed, and operated by five dynamic women entrepreneurs who bring diverse expertise under one unified vision.",
+      title: "Five-Director Leadership with Legal Backbone",
+      desc: "The company is directed by five leaders whose combined strengths across legal, administration, execution, and operations drive disciplined delivery.",
       icon: Users
     },
     {
