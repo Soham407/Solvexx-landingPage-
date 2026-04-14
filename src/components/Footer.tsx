@@ -30,19 +30,19 @@ const Footer = () => {
                 <span>SOLVES</span><span className="text-accent">XX</span>
               </div>
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="mb-6 leading-relaxed text-white font-medium">
               {SITE_TAGLINE} Managed with Integrity. Delivered with Precision.
             </p>
-            <p className="text-sm text-gray-400 mb-6">
+            <p className="text-sm text-white font-medium mb-6">
               {CONTACT_RESPONSE_COMMITMENT}
             </p>
-            <p className="text-sm text-gray-400 mb-2">{CERTIFICATION}</p>
-            <p className="text-xs text-gray-500">GST: {GST_NUMBER}</p>
-            <p className="text-xs text-gray-500 mb-6">CIN: {CIN_NUMBER}</p>
+            <p className="text-sm text-white font-medium mb-2">{CERTIFICATION}</p>
+            <p className="text-xs text-white font-medium">GST: {GST_NUMBER}</p>
+            <p className="text-xs text-white font-medium mb-6">CIN: {CIN_NUMBER}</p>
             <div className="flex flex-wrap gap-3">
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-gray-200 transition-colors hover:border-accent hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white font-medium transition-colors hover:border-accent hover:text-white"
               >
                 <Mail size={16} />
                 Email Us
@@ -51,7 +51,7 @@ const Footer = () => {
                 href={`https://${WEBSITE_HOST}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-gray-200 transition-colors hover:border-accent hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white font-medium transition-colors hover:border-accent hover:text-white"
               >
                 <Globe size={16} />
                 Visit Website
@@ -59,7 +59,7 @@ const Footer = () => {
               {CONTACT_PHONE ? (
                 <a
                   href={`tel:${CONTACT_PHONE}`}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-gray-200 transition-colors hover:border-accent hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white font-medium transition-colors hover:border-accent hover:text-white"
                 >
                   <Phone size={16} />
                   Call Us
@@ -70,7 +70,7 @@ const Footer = () => {
                   <a
                     key={phone}
                     href={`tel:${phone}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-gray-200 transition-colors hover:border-accent hover:text-white"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm text-white font-medium transition-colors hover:border-accent hover:text-white"
                   >
                     <Phone size={16} />
                     {phone}
@@ -84,10 +84,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-medium mb-6 border-b border-accent/30 pb-2 inline-block">Quick Links</h4>
             <ul className="space-y-4">
-              <li><Link to="/about" className="text-gray-300 hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-accent transition-colors">Our Services</Link></li>
-              <li><Link to="/why-us" className="text-gray-300 hover:text-accent transition-colors">Why Choose Us</Link></li>
-              <li><Link to="/contact" className="text-gray-300 hover:text-accent transition-colors">Contact Us</Link></li>
+              <li><Link to="/about" className="text-white font-medium hover:text-accent transition-colors">About Us</Link></li>
+              <li><Link to="/services" className="text-white font-medium hover:text-accent transition-colors">Our Services</Link></li>
+              <li><Link to="/why-us" className="text-white font-medium hover:text-accent transition-colors">Why Choose Us</Link></li>
+              <li><Link to="/contact" className="text-white font-medium hover:text-accent transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -95,10 +95,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-medium mb-6 border-b border-accent/30 pb-2 inline-block">Services</h4>
             <ul className="space-y-4">
-              <li><Link to="/services/security" className="text-gray-300 hover:text-accent transition-colors">Security Services</Link></li>
-              <li><Link to="/services/housekeeping" className="text-gray-300 hover:text-accent transition-colors">Housekeeping</Link></li>
-              <li><Link to="/services/ac-services" className="text-gray-300 hover:text-accent transition-colors">AC Services</Link></li>
-              <li><Link to="/services/pest-control" className="text-gray-300 hover:text-accent transition-colors">Pest Control</Link></li>
+              <li><Link to="/services/security" className="text-white font-medium hover:text-accent transition-colors">Security Services</Link></li>
+              <li><Link to="/services/housekeeping" className="text-white font-medium hover:text-accent transition-colors">Housekeeping</Link></li>
+              <li><Link to="/services/ac-services" className="text-white font-medium hover:text-accent transition-colors">AC Services</Link></li>
+              <li><Link to="/services/pest-control" className="text-white font-medium hover:text-accent transition-colors">Pest Control</Link></li>
             </ul>
           </div>
 
@@ -110,7 +110,7 @@ const Footer = () => {
                 <MapPin className="text-accent shrink-0" size={20} />
                 <div>
                   <div className="text-accent text-xs uppercase mb-1">Corporate Office</div>
-                  <span className="text-gray-300 text-sm">
+                  <span className="text-white font-medium text-sm">
                     {CONTACT_ADDRESSES.corporate}
                   </span>
                 </div>
@@ -119,25 +119,25 @@ const Footer = () => {
                 <MapPin className="text-accent shrink-0" size={20} />
                 <div>
                   <div className="text-accent text-xs uppercase mb-1">Registered Office</div>
-                  <span className="text-gray-300 text-sm">
+                  <span className="text-white font-medium text-sm">
                     {CONTACT_ADDRESSES.registered}
                   </span>
                 </div>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="text-accent shrink-0" size={20} />
-                <a href={`mailto:${CONTACT_EMAIL}`} className="text-gray-300 text-sm hover:text-accent transition-colors">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-white font-medium text-sm hover:text-accent transition-colors">
                   {CONTACT_EMAIL}
                 </a>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="text-accent shrink-0" size={20} />
                 {CONTACT_PHONE ? (
-                  <a href={`tel:${CONTACT_PHONE}`} className="text-gray-300 text-sm hover:text-accent transition-colors">
+                  <a href={`tel:${CONTACT_PHONE}`} className="text-white font-medium text-sm hover:text-accent transition-colors">
                     {CONTACT_PHONE_DISPLAY}
                   </a>
                 ) : (
-                  <span className="text-gray-300 text-sm">{CONTACT_PHONE_DISPLAY}</span>
+                  <span className="text-white font-medium text-sm">{CONTACT_PHONE_DISPLAY}</span>
                 )}
               </li>
               <li className="flex items-center space-x-3">
@@ -146,7 +146,7 @@ const Footer = () => {
                   href={`https://${WEBSITE_HOST}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-gray-300 text-sm hover:text-accent transition-colors"
+                  className="text-white font-medium text-sm hover:text-accent transition-colors"
                 >
                   {WEBSITE_HOST}
                 </a>
@@ -155,7 +155,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+        <div className="border-t border-white/10 pt-8 text-center text-white font-medium text-sm">
           <p>&copy; {new Date().getFullYear()} Solvesxx ({LEGAL_NAME}). All Rights Reserved.</p>
         </div>
       </div>

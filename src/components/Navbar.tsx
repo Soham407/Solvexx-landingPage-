@@ -36,6 +36,7 @@ const Navbar = () => {
     ? SERVICES.find(({ id }) => location.pathname === `/services/${id}`)
     : undefined;
   const primaryCtaLabel = activeService?.ctaLabel || 'Request a Quote';
+  const navbarPhoneDisplay = '9766669024 / 25';
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
@@ -91,7 +92,7 @@ const Navbar = () => {
                   scrolled ? 'border-primary text-primary' : 'border-white text-white'
                 }`}
               >
-                {CONTACT_PHONE_DISPLAY}
+                {navbarPhoneDisplay}
               </span>
             ) : null}
           </div>
@@ -150,7 +151,7 @@ const Navbar = () => {
                 </a>
               ) : CONTACT_PHONE_DISPLAY ? (
                 <div className="block w-full text-center border-2 border-primary text-primary px-6 py-3 rounded-md font-medium mt-3">
-                  {CONTACT_PHONE_DISPLAY}
+                  {navbarPhoneDisplay}
                 </div>
               ) : null}
             </div>

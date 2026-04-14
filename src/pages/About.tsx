@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Scale, Users, Settings, ShieldCheck, Target, Eye } from 'lucide-react';
+import { Scale, Users, Settings, Target, Eye } from 'lucide-react';
 import { CERTIFICATION, SITE_MISSION, SITE_TAGLINE } from '../site';
 import { TEAM_MEMBERS, getInitials } from '../team';
 import { useUiMotion } from '../hooks/useUiMotion';
@@ -150,41 +150,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Commitment */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-primary rounded-3xl p-12 md:p-20 text-white relative overflow-hidden">
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-medium mb-8">Our Commitment</h2>
-                <div className="space-y-6">
-                  {[
-                    "We commit to safety.",
-                    "We commit to hygiene.",
-                    "We commit to compliance.",
-                    "We commit to reliability.",
-                    "We commit to healthier, cleaner environments.",
-                    "Let's create a healthier space together."
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-4">
-                      <ShieldCheck className="text-accent" size={28} />
-                      <span className="text-xl font-medium">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="hidden lg:block">
-                <img 
-                  src="/services/housekeeping.svg"
-                  alt="Operational support planning" 
-                  className="rounded-2xl opacity-80"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -207,43 +172,45 @@ const About = () => {
                   whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.06 }}
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center rounded-[2rem] border border-gray-100 bg-white p-6 md:p-8 shadow-sm"
+                  className="rounded-[2rem] border border-gray-100 bg-white p-6 md:p-8 shadow-sm"
                 >
-                  <div className={isReversed ? 'lg:order-2' : ''}>
-                    <div className="relative overflow-hidden rounded-[1.75rem] bg-primary">
-                      <div className="absolute inset-0 bg-pattern opacity-20"></div>
-                      <div className="aspect-[4/5] relative z-10 overflow-hidden">
-                        {member.image ? (
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className={`h-full w-full object-cover ${member.imagePosition}`}
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        ) : (
-                          <div className="flex h-full w-full items-center justify-center bg-primary text-8xl font-display font-medium text-white">
-                            {getInitials(member.name)}
-                          </div>
-                        )}
+                  <div className={`flex flex-col gap-8 md:gap-10 ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
+                    <div className="w-full lg:w-[280px] lg:shrink-0">
+                      <div className="relative overflow-hidden rounded-[1.75rem] bg-primary">
+                        <div className="absolute inset-0 bg-pattern opacity-20"></div>
+                        <div className="aspect-[4/5] relative z-10 overflow-hidden">
+                          {member.image ? (
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              className={`h-full w-full object-cover ${member.imagePosition}`}
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          ) : (
+                            <div className="flex h-full w-full items-center justify-center bg-primary text-8xl font-display font-medium text-white">
+                              {getInitials(member.name)}
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className={isReversed ? 'lg:order-1' : ''}>
-                    <span className="inline-flex rounded-full bg-secondary px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-accent">
-                      Director Profile
-                    </span>
-                    <h3 className="mt-5 text-3xl md:text-4xl font-medium text-primary leading-tight">
-                      {member.name}
-                    </h3>
-                    <p className="mt-4 text-lg text-accent leading-relaxed">
-                      {member.title}
-                    </p>
-                    <div className="my-6 h-px w-full bg-gray-200"></div>
-                    <p className="text-gray-600 text-lg leading-8">
-                      {member.bio}
-                    </p>
+                    <div className="min-w-0 flex-1">
+                      <span className="inline-flex rounded-full bg-secondary px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-accent">
+                        Director Profile
+                      </span>
+                      <h3 className="mt-5 text-3xl md:text-4xl font-medium text-primary leading-tight">
+                        {member.name}
+                      </h3>
+                      <p className="mt-4 text-lg text-accent leading-relaxed">
+                        {member.title}
+                      </p>
+                      <div className="my-6 h-px w-full bg-gray-200"></div>
+                      <p className="text-gray-600 text-lg leading-8">
+                        {member.bio}
+                      </p>
+                    </div>
                   </div>
                 </motion.section>
               );
