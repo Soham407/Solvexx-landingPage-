@@ -2,7 +2,7 @@ export const TEAM_MEMBERS = [
   {
     name: 'Vandanaa Mahadeo Chougulay',
     title: 'Director, Marketing & Strategic Alliances',
-    image: null,
+    image: '/team/Vandana.avif',
     imagePosition: 'object-center',
     bio: 'With 30 years of diverse professional experience, Vandanaa brings a dynamic blend of business acumen, innovation, and leadership to Solvesxx. She holds a Master’s degree and has built a multifaceted career spanning manufacturing, international business, and strategic marketing. At Solvesxx, she drives marketing strategy and project alliances, building strong business relationships and aligning growth opportunities with market demand. She also leads her own sports brand, LGM Sports, a skating manufacturing and international trading business focused on custom skate design and innovation. Her earlier experience in the food industry further strengthens her operational and business management perspective across sectors. Known for her hard work, innovation-driven thinking, and strategic collaboration, she continues to add significant value to the company’s growth vision.',
   },
@@ -16,7 +16,7 @@ export const TEAM_MEMBERS = [
   {
     name: 'Sharada Vitthal Dhumal',
     title: 'Director, Administrative Management & Operations',
-    image: null,
+    image: '/team/Sharada.avif',
     imagePosition: 'object-center',
     bio: 'With over 25 years of professional experience, Sharada brings deep expertise in administrative management, financial discipline, and organizational efficiency to Solvesxx. She holds an M.Com with specialization in Business Entrepreneurship, giving her a strong foundation in both business strategy and operations. She oversees administrative systems and project organization, ensuring operations run with structure, accountability, and precision. Her career spans CA firms, legal firms, advertising, printing, media, and the gems and jewellery sector, including 15 years in accounts and 10 years in administration with organizations such as Times of India and P. N. Gadgil & Sons Ltd. Her cross-industry exposure has made her highly adaptable and detail-oriented, with strong capability in managing complex workflows and ensuring seamless coordination across departments.',
   },
@@ -30,7 +30,7 @@ export const TEAM_MEMBERS = [
   {
     name: 'Adv. Ashwini Jagtap',
     title: 'Director, Legal Advisory - Civil & Family Law',
-    image: null,
+    image: '/team/Ashwini.jpeg',
     imagePosition: 'object-center',
     bio: 'Advocate Ashwini brings strong legal expertise and practical understanding of civil and family law to the leadership team at Solvesxx. She holds B.Com and LLB degrees, combining a foundation in commerce with professional legal proficiency. She actively practices at Shivajinagar Court, handling matters related to civil and family law with structured guidance, and client-focused mindset, she plays an important role in safeguarding the company’s interests while enabling informed and compliant decision-making.',
   },

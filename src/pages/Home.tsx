@@ -332,7 +332,7 @@ const Home = () => {
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        className={`absolute inset-0 h-full w-full object-cover ${member.imagePosition} transition-transform duration-500 group-hover:scale-105`}
                         loading="lazy"
                         decoding="async"
                       />
