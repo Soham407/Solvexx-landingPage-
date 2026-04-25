@@ -1,5 +1,5 @@
 export const SITE_NAME = 'Solvesxx';
-export const LEGAL_NAME = 'Powerfull Solutions Pvt. Ltd.';
+export const LEGAL_NAME = 'Solvesxx Powerful Solutions Pvt. Ltd.';
 export const SITE_URL = 'https://www.solvesxx.com';
 export const SITE_DESCRIPTION =
   'Solvesxx delivers integrated facility, hygiene, pest management, maintenance, security, and material support services in Pune for corporate, residential, institutional, and industrial sites.';

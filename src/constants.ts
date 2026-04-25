@@ -4,7 +4,6 @@ import {
   Wind, 
   Leaf, 
   Bug, 
-  Printer, 
   CheckCircle2,
   Scale,
   Settings,
@@ -25,7 +24,11 @@ import ACMaintImg from './assets/ServiceImages/AC Maint.jpg';
 import HousekeepingImg from './assets/ServiceImages/Housekeeping.png';
 import LandscapingImg from './assets/ServiceImages/Pest Control Materials.png';
 import PestControlImg from './assets/ServiceImages/Pest Control.png';
-import PrintingSupplyImg from './assets/ServiceImages/Printing.png';
+import CleaningEssentialsImg from './assets/ServiceImages/Cleaning Essientials.png';
+import CorporateGiftingImg from './assets/ServiceImages/Corporate Gifting.png';
+import EcoFriendlyDisposablesImg from './assets/ServiceImages/EcoFriendly disposables.png';
+import PantryBeveragesImg from './assets/ServiceImages/Pantry_&_Beverages.png';
+import StationaryImg from './assets/ServiceImages/Stationary.png';
 
 export interface Service {
   id: string;
@@ -100,22 +103,21 @@ export const CORE_SERVICES: Service[] = [
   },
   {
     id: 'landscaping',
-    title: 'Plantation & Landscaping',
-    shortDesc: 'Creating and maintaining healthy green spaces.',
-    fullDesc: 'We design, maintain, and preserve landscapes that enhance the visual appeal and environmental health of your premises.',
+    title: 'Plantation Service',
+    shortDesc: 'Complete plantation and landscape maintenance.',
+    fullDesc: 'We provide professional plantation services and maintain landscapes to enhance the visual appeal and environmental health of your premises.',
     icon: Leaf,
     items: [
-      'Lawn Mowing', 
-      'Garden Maintenance', 
-      'Chemical Spraying', 
-      'Landscape Maintenance', 
+      'Lawn Mowing',
+      'Garden Maintenance',
+      'Chemical Spraying',
+      'Landscape Maintenance',
       'Seasonal Plantation'
     ],
     image: LandscapingImg,
     brochureNote: 'We combine aesthetics with systematic plant care practices.',
     category: 'core',
-    ctaLabel: 'Request Plantation Assessment',
-  },
+    ctaLabel: 'Request Plantation Assessment',  },
   {
     id: 'pest-control',
     title: 'Pest Control Services',
@@ -138,57 +140,6 @@ export const CORE_SERVICES: Service[] = [
     ctaLabel: 'Request Pest Control Assessment',
   },
   {
-    id: 'printing-supply',
-    title: 'Printing, Advertising & Material Supply',
-    shortDesc: 'Professional communication and essential supplies.',
-    fullDesc: 'Reliable sourcing and timely supply of essential materials alongside professional printing and advertising services.',
-    icon: Printer,
-    items: [
-      'Visitor Cards Printing', 
-      'Staff ID Card Printing', 
-      'Society Notice Printing', 
-      'Meeting Minutes Printing',
-      'Lift Poster Advertising',
-      'Notice Board Advertising',
-      'Entry Gate Banner Advertising',
-      'Security Panel Materials', 
-      'Door Controller Materials',
-      'Hot & Cold Beverage Materials',
-      'Eco Friendly Disposable Solutions',
-      'Cleaning Essential Materials', 
-      'Air Fresheners',
-      'Insecticides & Rodenticides',
-      'Anti Termite Chemicals',
-      'Stationery Materials',
-      'Corporate Gifting Materials'
-    ],
-    image: PrintingSupplyImg,
-    brochureNote: 'We ensure clarity, visibility, and professional presentation. Quality assured materials. On time delivery.',
-    category: 'core',
-    ctaLabel: 'Request Supply Assessment',
-  }
-];
-
-export const SUPPORT_SERVICES: Service[] = [
-  {
-    id: 'ai-surveillance',
-    title: 'AI Surveillance & Tripwire Monitoring',
-    shortDesc: 'Technology-led monitoring with after-hours alert workflows.',
-    fullDesc: 'Solvesxx supports AI-enabled surveillance requirements including facial-recognition-led monitoring and tripwire-triggered after-hours alerts for unauthorized entry visibility.',
-    icon: Camera,
-    items: [
-      'Door Security Cameras',
-      'AI Facial Recognition',
-      'Tripwire Alerts',
-      'Unauthorized Entry Monitoring',
-      'After-Hours Alert Support',
-    ],
-    image: SecurityGuardImg,
-    brochureNote: 'The surveillance setup is positioned as more than passive recording. It supports action-oriented monitoring and instant alert logic.',
-    category: 'support',
-    ctaLabel: 'Request Surveillance Review',
-  },
-  {
     id: 'deep-cleaning',
     title: 'Deep Cleaning Services',
     shortDesc: 'Structured deep-cleaning support for hygiene-sensitive environments.',
@@ -203,8 +154,28 @@ export const SUPPORT_SERVICES: Service[] = [
     ],
     image: HousekeepingImg,
     brochureNote: 'The brochure positions deep cleaning as part of Solvesxx’s hygiene-first operating capability.',
-    category: 'support',
+    category: 'core',
     ctaLabel: 'Request Deep Cleaning Assessment',
+  }
+];
+
+export const SUPPORT_SERVICES: Service[] = [
+  {
+    id: 'ai-surveillance',
+    title: 'Door Security Camera',
+    shortDesc: 'Enhanced site monitoring and entrance security solutions.',
+    fullDesc: 'We provide door security camera installations and monitoring services to ensure unauthorized entry visibility and enhanced safety for your premises.',
+    icon: Camera,
+    items: [
+      'Door Security Cameras',
+      'Entry Monitoring',
+      'Unauthorized Access Alerts',
+      'After-Hours Security Support',
+    ],
+    image: SecurityGuardImg,
+    brochureNote: 'The security setup is positioned as more than passive recording. It supports action-oriented monitoring and instant alert logic.',
+    category: 'support',
+    ctaLabel: 'Request Security Review',
   },
   {
     id: 'waste-management',
@@ -225,17 +196,17 @@ export const SUPPORT_SERVICES: Service[] = [
   },
   {
     id: 'cleaning-chemicals',
-    title: 'Cleaning Chemicals & Fragrances',
-    shortDesc: 'Commercial cleaning inputs and fragrance support for daily operations.',
-    fullDesc: 'We support facilities with cleaning chemicals, hygiene consumables, and fragrance-related materials aligned with commercial site maintenance needs.',
+    title: 'Commercial Cleaning Chemicals',
+    shortDesc: 'Cleaning chemicals and hygiene consumables for daily operations.',
+    fullDesc: 'We support facilities with high-quality commercial cleaning chemicals, hygiene consumables, and related materials aligned with maintenance and sanitation needs.',
     icon: Package,
     items: [
       'Commercial Cleaning Chemicals',
-      'Fragrance Materials',
-      'Air Fresheners',
-      'Routine Cleaning Consumables',
+      'Hygiene Consumables',
+      'Surface Disinfectants',
+      'Routine Cleaning Supplies',
     ],
-    image: PrintingSupplyImg,
+    image: CleaningEssentialsImg,
     brochureNote: 'The brochure highlights eco-conscious cleaning support and consumable supply as part of day-to-day facility readiness.',
     category: 'support',
     ctaLabel: 'Request Chemical Supply Review',
@@ -253,7 +224,7 @@ export const SUPPORT_SERVICES: Service[] = [
       'Natural-Flavor Drink Support',
       'Pantry Consumables',
     ],
-    image: PrintingSupplyImg,
+    image: PantryBeveragesImg,
     brochureNote: 'The brochure notes premium ingredients for hot beverages and natural flavors for cold beverages.',
     category: 'support',
     ctaLabel: 'Request Beverage Service Review',
@@ -270,7 +241,7 @@ export const SUPPORT_SERVICES: Service[] = [
       'Event Consumption Materials',
       'Eco-Friendly Supply Options',
     ],
-    image: PrintingSupplyImg,
+    image: EcoFriendlyDisposablesImg,
     brochureNote: 'Eco-friendly supply support is presented as a practical extension of Solvesxx’s facility consumable capability.',
     category: 'support',
     ctaLabel: 'Request Disposable Supply Review',
@@ -287,7 +258,7 @@ export const SUPPORT_SERVICES: Service[] = [
       'Employee Gifting Support',
       'Client Engagement Materials',
     ],
-    image: PrintingSupplyImg,
+    image: CorporateGiftingImg,
     brochureNote: 'The brochure explicitly positions these gifting services as designed to reflect the client’s brand.',
     category: 'support',
     ctaLabel: 'Request Corporate Gifting Review',
@@ -304,7 +275,7 @@ export const SUPPORT_SERVICES: Service[] = [
       'Material Movement Planning',
       'Operational Sourcing Assistance',
     ],
-    image: PrintingSupplyImg,
+    image: StationaryImg,
     brochureNote: 'This capability is aligned with the leadership team’s operational and supply-chain-oriented experience.',
     category: 'support',
     ctaLabel: 'Request Supply Chain Review',
@@ -321,7 +292,7 @@ export const SUPPORT_SERVICES: Service[] = [
       'Contract Visibility Support',
       'Documentation Tracking',
     ],
-    image: PrintingSupplyImg,
+    image: StationaryImg,
     brochureNote: 'The brochure specifically mentions cloud-based contract management with automated deadline alerts for renewals.',
     category: 'support',
     ctaLabel: 'Request Contract Management Review',

@@ -1,18 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F7F7FA" />
-      <stop offset="100%" stop-color="#EAEAF2" />
+      <stop offset="0%" stop-color="#F6F8FB" />
+      <stop offset="100%" stop-color="#E5EDF6" />
     </linearGradient>
   </defs>
   <rect width="1200" height="800" fill="url(#bg)" />
-  <rect x="120" y="130" width="960" height="540" rx="36" fill="#FFFFFF" />
-  <rect x="180" y="220" width="320" height="230" rx="28" fill="#052D56" />
-  <rect x="230" y="270" width="220" height="130" rx="18" fill="#FFFFFF" />
-  <rect x="560" y="220" width="170" height="170" rx="26" fill="#D4AF37" />
-  <rect x="770" y="220" width="230" height="70" rx="20" fill="#EDF3F8" />
-  <rect x="770" y="320" width="230" height="70" rx="20" fill="#EDF3F8" />
-  <rect x="560" y="430" width="440" height="90" rx="24" fill="#EDF3F8" />
-  <text x="180" y="610" fill="#052D56" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700">Printing, Advertising &amp; Supply</text>
-  <text x="180" y="660" fill="#5B6B80" font-family="Inter, Arial, sans-serif" font-size="28">Print materials, communication support, and essential operational supplies.</text>
+  <rect x="110" y="120" width="980" height="560" rx="36" fill="#FFFFFF" />
+  <rect x="180" y="210" width="250" height="320" rx="28" fill="#052D56" />
+  <rect x="470" y="210" width="210" height="110" rx="24" fill="#D4AF37" />
+  <rect x="470" y="350" width="210" height="180" rx="24" fill="#EDF3F8" />
+  <rect x="720" y="210" width="300" height="80" rx="22" fill="#EDF3F8" />
+  <rect x="720" y="320" width="300" height="80" rx="22" fill="#EDF3F8" />
+  <rect x="720" y="430" width="300" height="80" rx="22" fill="#EDF3F8" />
+  <circle cx="305" cy="315" r="74" fill="#D4AF37" />
+  <rect x="260" y="410" width="90" height="18" rx="9" fill="#FFFFFF" fill-opacity="0.9" />
+  <rect x="760" y="580" width="180" height="16" rx="8" fill="#D4AF37" fill-opacity="0.5" />
+  <text x="180" y="620" fill="#052D56" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="700">Housekeeping &amp; Support</text>
+  <text x="180" y="670" fill="#5B6B80" font-family="Inter, Arial, sans-serif" font-size="28">Hygiene control, pantry support, and routine site upkeep.</text>
 </svg>

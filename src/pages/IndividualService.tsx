@@ -56,39 +56,12 @@ const IndividualService = () => {
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                {service.id === 'printing-supply' ? (
-                  <div className="col-span-full grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                      <h4 className="text-accent font-medium uppercase tracking-widest text-sm mb-4">Printing & Advertising Services</h4>
-                      <div className="flex flex-col gap-4">
-                        {service.items.slice(0, 7).map((item) => (
-                          <div key={item} className="flex items-center gap-4 p-4 bg-secondary rounded-xl border border-gray-100">
-                            <CheckCircle2 className="text-accent shrink-0" />
-                            <span className="text-primary text-sm">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="text-accent font-medium uppercase tracking-widest text-sm mb-4">Material Supply Services</h4>
-                      <div className="flex flex-col gap-4">
-                        {service.items.slice(7).map((item) => (
-                          <div key={item} className="flex items-center gap-4 p-4 bg-secondary rounded-xl border border-gray-100">
-                            <CheckCircle2 className="text-accent shrink-0" />
-                            <span className="text-primary text-sm">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                {service.items.map((item) => (
+                  <div key={item} className="flex items-center gap-4 p-6 bg-secondary rounded-xl border border-gray-100">
+                    <CheckCircle2 className="text-accent shrink-0" />
+                    <span className="text-primary">{item}</span>
                   </div>
-                ) : (
-                  service.items.map((item) => (
-                    <div key={item} className="flex items-center gap-4 p-6 bg-secondary rounded-xl border border-gray-100">
-                      <CheckCircle2 className="text-accent shrink-0" />
-                      <span className="text-primary">{item}</span>
-                    </div>
-                  ))
-                )}
+                ))}
               </div>
 
               <div className="bg-primary/5 p-8 rounded-2xl border-l-4 border-primary mb-12">

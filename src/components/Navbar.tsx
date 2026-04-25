@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import Logo from '../assets/Logo-optimized.png';
-import { CONTACT_PHONE, CONTACT_PHONE_DISPLAY } from '../site';
+import { CONTACT_PHONE, CONTACT_PHONE_DISPLAY, LEGAL_NAME } from '../site';
 import { SERVICES } from '../constants';
 import { useUiMotion } from '../hooks/useUiMotion';
 
@@ -47,10 +47,15 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <img src={Logo} alt="Solvesxx Logo" className="h-10 w-auto" />
-            <div className="text-2xl font-display font-medium tracking-tighter">
-              <span className={scrolled ? 'text-primary' : 'text-white'}>SOLVES</span>
-              <span className="text-accent">XX</span>
+            <img src={Logo} alt="Solvesxx Logo" className="h-14 w-auto" />
+            <div className="flex flex-col">
+              <div className="text-2xl font-display font-medium tracking-tighter leading-none">
+                <span className={scrolled ? 'text-primary' : 'text-white'}>SOLVES</span>
+                <span className="text-accent">XX</span>
+              </div>
+              <div className={`text-[8px] sm:text-[9px] font-medium tracking-tight leading-none mt-1 ${scrolled ? 'text-primary/70' : 'text-white/70'}`}>
+                Powerful Solutions Pvt. Ltd.
+              </div>
             </div>
           </Link>
 

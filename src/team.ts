@@ -1,6 +1,6 @@
 export const TEAM_MEMBERS = [
   {
-    name: 'Vandanaa Mahadeo Chougulay',
+    name: 'Vandanaa Chougolay',
     title: 'Director, Marketing & Strategic Alliances',
     image: '/team/Vandana.avif',
     imagePosition: 'object-center',
@@ -14,14 +14,14 @@ export const TEAM_MEMBERS = [
     bio: 'With more than 20 years of industry experience, Nafis Shaikh brings a strong blend of design insight and execution expertise to Solvesxx. A graduate in Interior Design, she has built her career around precision, coordination, and delivering projects that meet both functional and aesthetic expectations. She has served as a Senior Designer and Project Coordinator, where she played a central role in turning concepts into well-executed outcomes. Her core strength is execution excellence: managing timelines, coordinating stakeholders, and ensuring every phase of delivery is handled with discipline and clarity. Driven by a deep passion for project management, she believes successful projects are built on planning, coordination, and flawless execution.',
   },
   {
-    name: 'Sharada Vitthal Dhumal',
+    name: 'Sharada Dhumal',
     title: 'Director, Administrative Management & Operations',
     image: '/team/Sharada.avif',
     imagePosition: 'object-center',
     bio: 'With over 25 years of professional experience, Sharada brings deep expertise in administrative management, financial discipline, and organizational efficiency to Solvesxx. She holds an M.Com with specialization in Business Entrepreneurship, giving her a strong foundation in both business strategy and operations. She oversees administrative systems and project organization, ensuring operations run with structure, accountability, and precision. Her career spans CA firms, legal firms, advertising, printing, media, and the gems and jewellery sector, including 15 years in accounts and 10 years in administration with organizations such as Times of India and P. N. Gadgil & Sons Ltd. Her cross-industry exposure has made her highly adaptable and detail-oriented, with strong capability in managing complex workflows and ensuring seamless coordination across departments.',
   },
   {
-    name: 'Adv. Kamal Dashrath Sawant',
+    name: 'Adv. Kamal Sawant',
     title: 'Director, Legal Advisory & Governance',
     image: '/team/kamal-sawant.jpeg',
     imagePosition: 'object-center',

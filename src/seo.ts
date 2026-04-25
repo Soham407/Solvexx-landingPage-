@@ -19,7 +19,7 @@ export interface RouteMeta {
 }
 
 export const DEFAULT_SOCIAL_DESCRIPTION =
-  'Integrated facility management, hygiene, pest management, maintenance, security, and material support in Pune.';
+  'Integrated facility management, hygiene, deep cleaning, pest management, maintenance, security, and material support in Pune.';
 
 export const ROUTE_META: Record<string, RouteMeta> = {
   '/': {
@@ -34,9 +34,9 @@ export const ROUTE_META: Record<string, RouteMeta> = {
     path: '/about',
   },
   '/services': {
-    title: `${SITE_NAME} Services | Security, Housekeeping, AC, Pest Control & Supply`,
+    title: `${SITE_NAME} Services | Security, Housekeeping, AC, Pest Control & Deep Cleaning`,
     description:
-      'Explore Solvesxx services across security, housekeeping, AC maintenance, pest control, plantation, supply, beverages, gifting, and support services.',
+      'Explore Solvesxx services across security, housekeeping, AC maintenance, pest control, deep cleaning, plantation, supply, beverages, gifting, and support services.',
     path: '/services',
   },
   '/why-us': {

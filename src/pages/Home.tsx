@@ -87,7 +87,7 @@ const Home = () => {
             <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>
           </div>
           <div className="hidden lg:block w-1/2 h-full relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rotate-45">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rotate-45">
               <div className="grid grid-cols-2 grid-rows-2 gap-4 w-full h-full p-4">
                 <div className="overflow-hidden bg-white p-2 shadow-2xl rounded-3xl">
                   <img src={HousekeepingImg} alt="Housekeeping support" className="w-full h-full object-cover object-top -rotate-45 scale-[1.4]" />
@@ -176,7 +176,7 @@ const Home = () => {
       <section className="bg-secondary py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Why Solvesxx</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-primary mb-4">Why Solvesxx</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto"></div>
             <p className="text-gray-600 max-w-3xl mx-auto mt-6">{SITE_MISSION}</p>
           </div>
@@ -210,10 +210,10 @@ const Home = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Our Core Services</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-primary mb-4">Our Core Services</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We provide professionally managed facility services across security, hygiene, maintenance, pest management, plantation, and supply support.
+              We provide professionally managed facility services across security, hygiene, maintenance, deep cleaning, pest management, and plantation.
             </p>
           </div>
 
@@ -258,7 +258,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <p className="text-sm uppercase tracking-[0.28em] text-accent mb-4">Security | Maintenance | Hygiene | Infrastructure</p>
-            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Extended Service Scope</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-primary mb-4">Extended Service Scope</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-3xl mx-auto">
               Beyond core facility operations, Solvesxx also supports consumables, beverages, disposables, gifting, legal process support, and technology-led site requirements.
@@ -266,10 +266,10 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              'AI-enabled surveillance and door monitoring',
+              'Door Security Camera',
               'Deep cleaning and hygiene support',
               'Waste management support',
-              'Cleaning chemicals and fragrances',
+              'Commercial cleaning chemicals',
               'Premium hot beverages and natural-flavour cold beverages',
               'Eco-friendly paper cups and disposables',
               'Corporate gifting designed to reflect your brand',
@@ -299,7 +299,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-accent tracking-widest uppercase text-sm mb-4 block">Meet The Team</span>
-            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">The Leadership Behind Solvesxx</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-primary mb-4">The Leadership Behind Solvesxx</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-3xl mx-auto">
               Five leaders with complementary strengths across strategy, execution, administration, and legal governance.
@@ -364,7 +364,7 @@ const Home = () => {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">How We Work</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-primary mb-4">How We Work</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Our structured approach ensures every service is executed with accountability and quality control.
@@ -407,7 +407,7 @@ const Home = () => {
       <section className="py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">What We Put In Place Before Deployment</h2>
+            <h2 className="text-2xl md:text-3xl font-medium text-primary mb-4">What We Put In Place Before Deployment</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-3xl mx-auto">
               The site does not rely on generic promises. Every engagement starts with documented scope, supervision clarity, and operating discipline.
@@ -451,7 +451,7 @@ const Home = () => {
       {/* CTA Section */}
       <section className="py-20 blue-gradient text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-medium mb-6">Ready to review your facility requirement properly?</h2>
+          <h2 className="text-2xl md:text-3xl font-medium mb-6">Ready to review your facility requirement properly?</h2>
           <p className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
             Let us work for you. Share your scope, operating location, and service need, and we will review the requirement and propose a practical next step.
           </p>
@@ -546,7 +546,7 @@ const Home = () => {
                   <span className="mb-4 inline-flex rounded-full bg-secondary px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-accent">
                     Leadership Profile
                   </span>
-                  <h3 id="team-member-modal-title" className="max-w-2xl text-3xl md:text-4xl font-medium text-primary leading-tight">
+                  <h3 id="team-member-modal-title" className="max-w-2xl text-2xl md:text-3xl font-medium text-primary leading-tight">
                     {selectedMember.name}
                   </h3>
                   <p className="mt-4 max-w-2xl text-lg md:text-xl leading-relaxed text-gray-600">

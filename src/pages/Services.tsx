@@ -18,7 +18,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <h1 className="text-4xl md:text-5xl font-medium mb-6">Our Services</h1>
+            <h1 className="text-3xl md:text-4xl font-medium mb-6">Our Services</h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Comprehensive facility, hygiene, supply, and support solutions tailored to your operating requirements.
             </p>
@@ -32,7 +32,7 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="text-sm uppercase tracking-[0.28em] text-accent mb-3">Core Services</p>
-            <h2 className="text-3xl font-medium text-primary">Facility Operations</h2>
+            <h2 className="text-2xl font-medium text-primary">Facility Operations</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             {CORE_SERVICES.map((service, index) => (
@@ -93,7 +93,7 @@ const Services = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-sm uppercase tracking-[0.28em] text-accent mb-3">Business Support Services</p>
-            <h2 className="text-3xl font-medium text-primary mb-4">Additional Capability Areas</h2>
+            <h2 className="text-2xl font-medium text-primary mb-4">Additional Capability Areas</h2>
             <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-3xl mx-auto">
               These are support capabilities that extend the company’s operational scope beyond the primary facility-management service lines.
@@ -157,7 +157,7 @@ const Services = () => {
       {/* Industries Served */}
       <section className="py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-medium text-primary mb-16">Industries We Serve</h2>
+          <h2 className="text-2xl font-medium text-primary mb-16">Industries We Serve</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { name: "Corporate Offices", icon: Building2 },

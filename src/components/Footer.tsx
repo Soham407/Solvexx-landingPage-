@@ -163,7 +163,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 pt-8 text-center text-white font-medium text-sm">
-          <p>&copy; {new Date().getFullYear()} Solvesxx ({LEGAL_NAME}). All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {LEGAL_NAME}. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
