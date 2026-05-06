@@ -25,11 +25,12 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Why Us', path: '/why-us' },
     { name: 'Contact', path: '/contact' },
   ];
+
+  const aboutLink = { name: 'About us', path: '/about' };
 
   const isHome = location.pathname === '/';
   const activeService = location.pathname.startsWith('/services/')
@@ -47,7 +48,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <img src={Logo} alt="Solvesxx Logo" className="h-10 w-auto" />
+            <img src={Logo} alt="Solvesxx Logo" className="h-16 w-auto" />
             <div className="text-2xl font-display font-medium tracking-tighter">
               <span className={scrolled ? 'text-primary' : 'text-white'}>SOLVES</span>
               <span className="text-accent">XX</span>
@@ -61,16 +62,26 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 className={`font-medium transition-colors hover:text-accent ${
-                  location.pathname === link.path 
-                    ? 'text-accent' 
+                  location.pathname === link.path
+                    ? 'text-accent'
                     : scrolled ? 'text-primary' : 'text-white'
                 }`}
               >
                 {link.name}
               </Link>
             ))}
-            <Link 
-              to="/contact" 
+            <Link
+              to={aboutLink.path}
+              className={`text-sm font-medium transition-colors hover:text-accent ${
+                location.pathname === aboutLink.path
+                  ? 'text-accent'
+                  : scrolled ? 'text-primary' : 'text-white'
+              }`}
+            >
+              {aboutLink.name}
+            </Link>
+            <Link
+              to="/contact"
               className="bg-accent hover:bg-opacity-90 text-white px-6 py-2 rounded-md font-medium transition-all gold-gradient"
             >
               {primaryCtaLabel}
@@ -134,6 +145,13 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
+              <Link
+                to={aboutLink.path}
+                onClick={() => setIsOpen(false)}
+                className="block px-3 py-4 text-sm font-medium text-primary hover:bg-gray-50 hover:text-accent"
+              >
+                {aboutLink.name}
+              </Link>
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}

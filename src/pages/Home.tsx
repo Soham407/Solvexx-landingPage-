@@ -115,8 +115,8 @@ const Home = () => {
             transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.8 }}
             className="w-full lg:w-1/2 lg:pr-12 py-12"
           >
-            <span className="text-accent tracking-widest uppercase text-sm mb-4 block">{LEGAL_NAME}</span>
-            <h1 className="text-4xl md:text-6xl font-display font-medium text-white mb-6 leading-tight">
+            <span className="text-accent tracking-widest uppercase text-lg md:text-xl mb-4 block">SOLVESXX {LEGAL_NAME}</span>
+            <h1 className="text-3xl md:text-5xl font-display font-medium text-white mb-6 leading-tight">
               Complete Facility & <br />
               <span className="text-accent">Infrastructure Solutions</span>
             </h1>
