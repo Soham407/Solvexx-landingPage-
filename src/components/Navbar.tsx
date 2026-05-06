@@ -47,11 +47,18 @@ const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center space-x-2">
-            <img src={Logo} alt="Solvesxx Logo" className="h-16 w-auto" />
-            <div className="text-2xl font-display font-medium tracking-tighter">
-              <span className={scrolled ? 'text-primary' : 'text-white'}>SOLVES</span>
-              <span className="text-accent">XX</span>
+          <Link to="/" className="flex items-center gap-3">
+            <div className="flex-shrink-0">
+              <img src={Logo} alt="Solvesxx Logo" className="h-14 sm:h-16 w-auto object-contain" />
+            </div>
+            <div className="flex flex-col justify-center">
+              <div className="text-xl sm:text-2xl font-display font-semibold tracking-tight leading-tight">
+                <span className={scrolled ? 'text-primary' : 'text-white'}>SOLVES</span>
+                <span className="text-accent">XX</span>
+              </div>
+              <div className="text-[10px] sm:text-xs font-semibold tracking-wide leading-none mt-0.5 text-accent uppercase">
+                Powerful Solutions Pvt. Ltd.
+              </div>
             </div>
           </Link>
 
