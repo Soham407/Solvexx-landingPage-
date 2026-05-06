@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Scale, Users, Settings, Target, Eye } from 'lucide-react';
-import { CERTIFICATION, SITE_MISSION, SITE_TAGLINE } from '../site';
+import { CERTIFICATION, SITE_MISSION, SITE_TAGLINE, LICENSES } from '../site';
 import { TEAM_MEMBERS, getInitials } from '../team';
 import { useUiMotion } from '../hooks/useUiMotion';
 
@@ -215,6 +215,50 @@ const About = () => {
                 </motion.section>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Licenses & Certifications */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-medium text-primary mb-4">Our Licenses & Certifications</h2>
+            <div className="w-20 h-1.5 bg-accent mx-auto mb-6"></div>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              We maintain full statutory compliance and hold all necessary government registrations and certifications required for professional facility management operations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+            {LICENSES.map((license, index) => (
+              <motion.div
+                key={license.name}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center justify-center p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg hover:border-accent transition-all group"
+              >
+                <div className="h-20 w-20 flex items-center justify-center mb-4 overflow-hidden rounded-lg bg-white group-hover:bg-secondary transition-colors duration-500">
+                  <img
+                    src={license.logo}
+                    alt={license.name}
+                    className="h-16 w-16 object-contain"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                    }}
+                  />
+                  <div className="hidden text-center text-xs font-medium text-primary bg-white rounded p-2">
+                    {license.name}
+                  </div>
+                </div>
+                <h3 className="font-medium text-primary text-center text-sm mb-2">{license.name}</h3>
+                <p className="text-xs text-gray-600 text-center">{license.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
